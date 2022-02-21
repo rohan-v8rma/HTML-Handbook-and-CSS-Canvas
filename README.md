@@ -50,7 +50,43 @@ A browser does not display the HTML tags, rather it uses them to determine how t
 
 # CSS Reference
 
+## What is CSS?
+
+
 CSS (*Cascading Style Sheets*) is the language we use to style an HTML document. It is used to format the layout of a webpage, meaning how HTML elements should be displayed. <br>
 NOTE: The word **cascading** refers to the fact that a style applied to a parent element will also apply to all children elements within the parent. <br>
 So, if we set the color of the body text to "blue", all headings, paragraphs, and other text elements within the body will also get the same color (unless we specify something else).
 
+## Using CSS
+
+CSS can be added to HTML documents in 3 ways:
+
+- **Inline** - Inline CSS uses the `style` attribute of an HTML element. This applies a unique style to a single HTML element.
+```
+...
+<body>
+    <h1 style = "color: limegreen;"> hello world </h1>    
+</body>
+...
+```
+- **Internal** - Internal CSS is used to define a style for a single HTML page. It is defined in the `<head>` section of an HTML page, within a `<style>` element.
+```
+...
+<head>
+<style>
+body {background-color: powderblue;}
+h1   {color: blue;}
+p    {color: red;}
+</style>
+</head>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+...
+```
+- External - by using a `<link>` element to link to an external CSS file. 
+
+The most common way to add CSS, is to keep the styles in external CSS files. 
