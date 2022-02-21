@@ -1,9 +1,9 @@
 body {
     background-color: yellow;
 }
-h1 {
+#heading1 {
     color: orange;
 } 
-p {
+#para1 {
     color: purple;
 }
