@@ -1,9 +1,9 @@
 body {
     background-color: yellow;
 }
-#heading1 {
+.firstclass {
     color: orange;
 } 
-#para1 {
+.secondclass {
     color: purple;
 }

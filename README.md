@@ -48,6 +48,19 @@ The purpose of a web browser (Chrome, Edge, Firefox, Safari) is to read HTML doc
 
 A browser does not display the HTML tags, rather it uses them to determine how to display the document.
 
+## HTML elements
+
+### `<a>` element
+
+The HTML `<a>` element defines a hyperlink. It has the following attributes: 
+- `href` : This attribute contains the URL of the destination which the hyperlink leads to.
+- `title` : This attribute specifies extra information about an element. The information is shown as a tooltip text when the mouse moves over the element. 
+
+SYNTAX : 
+```
+<a href="url">Display text of hyperlink</a>
+```
+The hyperlink displays the text enclosed between the start and end tag to the user.
 # CSS Reference
 
 ## What is CSS?
@@ -89,7 +102,7 @@ p    {color: red;}
 ```
 - **External** - by using a `<link>` element to link to an external CSS file. We will be using the following attributes of the `<link>` HTML element:<br>
     - `rel` : Required. Specifies the relationship between the current document and the linked document
-    - `href` : 	Specifies the location of the linked document
+    - `href` : 	Specifies the location of the linked document, either as an absolute or relative URL.
 
 ```
 ...
@@ -104,3 +117,44 @@ p    {color: red;}
 ```
 
 The most common way to add CSS, is to keep the styles in external CSS files. 
+
+## CSS Selectors
+
+### CSS element Selector 
+
+The element selector selects HTML elements based on the element name. <br>
+Syntax:
+```
+<HTML-element> {
+    color: red;
+}
+```
+
+### CSS ID Selector 
+
+The id selector uses the id attribute of an HTML element to select a specific element.
+
+**The id of an element is unique within a page**, so the id selector is used to select one unique element. 
+```
+<p id = "para1">HelloWorld</p>
+```
+
+To select an element with a specific id, write a hash (#) character, followed by the id of the element. 
+```
+#para1 {
+    color: red;
+}
+```
+### CSS class selector
+
+The class selector selects HTML elements with a specific class attribute. An element can be a part of multiple classes.
+```
+<p class = "firstclass secondclass">HelloWorld</p>
+```
+
+To select elements with a specific class, write a period `(.)` character, followed by the class name
+```
+.firstclass {
+    color: red;
+}
+```
