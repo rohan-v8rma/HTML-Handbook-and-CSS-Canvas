@@ -87,6 +87,20 @@ p    {color: red;}
 </body>
 ...
 ```
-- External - by using a `<link>` element to link to an external CSS file. 
+- **External** - by using a `<link>` element to link to an external CSS file. We will be using the following attributes of the `<link>` HTML element:<br>
+    - `rel` : Required. Specifies the relationship between the current document and the linked document
+    - `href` : 	Specifies the location of the linked document
+
+```
+...
+<head>    
+    <link rel="stylesheet" href="css/demostyles.css">
+</head>
+<body>
+    <h1>hello world</h1>    
+    <p>my name is rohan</p>
+</body>
+...
+```
 
 The most common way to add CSS, is to keep the styles in external CSS files. 
