@@ -48,19 +48,77 @@ The purpose of a web browser (Chrome, Edge, Firefox, Safari) is to read HTML doc
 
 A browser does not display the HTML tags, rather it uses them to determine how to display the document.
 
+## HTML Inline, Block & Flex elements
+
+### Block-level element
+
+A block-level element always starts on a new line, and the browsers automatically add some space (a margin) before and after the element. It always takes up the full width available (stretches out to the left and right as far as it can).
+
+Two commonly used block elements are: `<p>` and `<div>`.
+
+### Inline element
+
+An inline element does not start on a new line. It only takes up as much width as necessary.
+
+Some commonly used block elements are: `<img>`, `<a>` and `<span>`.
+
+
 ## HTML elements
 
 ### `<a>` element
 
 The HTML `<a>` element defines a hyperlink. It has the following attributes: 
-- `href` : This attribute contains the URL of the destination which the hyperlink leads to.
-- `title` : This attribute specifies extra information about an element. The information is shown as a tooltip text when the mouse moves over the element. 
+- `href` : Contains the URL of the destination which the hyperlink leads to.
+- `title` : Specifies extra information about an element. The information is shown as a **tooltip** text when the mouse moves over the element. 
 
 SYNTAX : 
 ```
 <a href="url">Display text of hyperlink</a>
 ```
 The hyperlink displays the text enclosed between the start and end tag to the user.
+<br> <br>
+
+### `<div>` element
+
+The `<div>` tag is known as Division tag.
+
+The Div is the most usable tag in web development because it helps us to separate out data in the web page and we can create a particular section for particular data or function in the web pages.
+
+The `<div>` HTML element is a generic container for **flow content** (Flow content is a broad category that encompasses most elements that can go inside the `<body>` element, including heading elements, sectioning elements, etc). 
+
+It has no effect on the content or layout until styled in some way using CSS.
+<br> <br>
+
+### `<header>` & `<footer>` element
+
+`<header>` and `<footer>` are meta tags which just tell the browser that a header or a footer is being read. They behave like divs. It is recommended to use both of these tags to make our web page fully HTML5 compliant.
+<br> <br>
+
+justify contents
+align-items
+
+### `<link>` element
+
+The `<link>` element tells the relationship between the current document and an external resource.
+It is most often used to link to external style sheets or to add a favicon  to a website.
+
+It is an empty element, it contains attributes only which are as follows:
+- `rel` : Specifies the relationship between the current document and the linked document.
+- `href` : Specifies the location of the linked file.
+
+#### **Adding an external CSS stylesheet**
+
+```
+<link rel="stylesheet" href="/css/styles.css">
+```
+
+#### **Adding a favicon**
+
+```
+<link rel="icon" href="/images/favicon.png">
+```
+NOTE: **favicon** is a small square image that represents a website in web browsers.
+
 # CSS Reference
 
 ## What is CSS?
@@ -119,7 +177,7 @@ p    {color: red;}
 The most common way to add CSS, is to keep the styles in external CSS files. 
 
 ## CSS Selectors
-
+ID > CLASS > ELEMENT
 ### CSS element Selector 
 
 The element selector selects HTML elements based on the element name. <br>
@@ -158,3 +216,6 @@ To select elements with a specific class, write a period `(.)` character, follow
     color: red;
 }
 ```
+
+default height of `<html>` element is as much it is required.
+
