@@ -64,6 +64,17 @@ Some commonly used block elements are: `<img>`, `<a>` and `<span>`.
 
 ### Inline-block
 
+An element with `display: inline-block` combines properties of inline and block.
+
+#### Features `display: inline-block` has over `display: inline` 
+
+- allows to set a width and height on the element.
+- the top and bottom margins/paddings are respected.
+
+#### Features `display: inline-block` has over `display: block` 
+
+- does not add a line-break after the element, so the element can sit next to other elements.
+
 ### Flexbox
 
 flex is a value which can be assigned to the CSS `display` property of an HTML element.
@@ -203,6 +214,8 @@ p    {color: red;}
 The most common way to add CSS, is to keep the styles in external CSS files. 
 
 ## CSS Selectors
+
+Order of precedence for CSS:
 ID > CLASS > ELEMENT
 ### CSS element Selector 
 
@@ -242,7 +255,6 @@ To select elements with a specific class, write a period `(.)` character, follow
     color: red;
 }
 ```
-<br>
 
 ## CSS `display` Property
 
@@ -255,7 +267,6 @@ SYNTAX:
     display: display-property-value;
 }
 ```
-<br>
 
 ## CSS properties for flexboxes
 
