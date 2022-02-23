@@ -62,6 +62,25 @@ An inline element does not start on a new line. It only takes up as much width a
 
 Some commonly used block elements are: `<img>`, `<a>` and `<span>`.
 
+### Inline-block
+
+### Flexbox
+
+flex is a value which can be assigned to the CSS `display` property of an HTML element.
+
+The Flexbox layout gives the container the ability to alter its items’ width/height (and order) to best fill the available space in order to accommodate to all kind of display devices and screen sizes. 
+
+A flex container expands items to fill available free space or shrinks them to prevent overflow.
+
+Most importantly, the flexbox layout is **direction-agnostic** as opposed to the regular layouts (block which is vertically-based and inline which is horizontally-based). 
+
+While those work well for pages, they lack flexibility to support large or complex applications (especially when it comes to orientation changing, resizing, stretching, shrinking, etc.).
+
+Refer 
+[CSS properties for flexboxes](##-CSS-properties-for-flexboxes) 
+below or 
+[A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) 
+for more information.
 
 ## HTML elements
 
@@ -76,6 +95,16 @@ SYNTAX :
 <a href="url">Display text of hyperlink</a>
 ```
 The hyperlink displays the text enclosed between the start and end tag to the user.
+<br> <br>
+
+### `<img>` element
+
+The HTML`<img>` element is used to embed an image in an HTML page.
+
+Images are not technically inserted into a web page; images are linked to web pages. This element creates a holding space for the referenced image.
+- `src` : Specifies the path to the image.
+- `alt` : Specifies an alternate text for the image, if the image for some reason cannot be displayed. This text is also used by screen readers for telling about the image.
+- `title` : Specifies the title of the image which is visible as a tooltip upon hovering on the image.
 <br> <br>
 
 ### `<div>` element
@@ -93,9 +122,6 @@ It has no effect on the content or layout until styled in some way using CSS.
 
 `<header>` and `<footer>` are meta tags which just tell the browser that a header or a footer is being read. They behave like divs. It is recommended to use both of these tags to make our web page fully HTML5 compliant.
 <br> <br>
-
-justify contents
-align-items
 
 ### `<link>` element
 
@@ -216,6 +242,43 @@ To select elements with a specific class, write a period `(.)` character, follow
     color: red;
 }
 ```
+<br>
 
-default height of `<html>` element is as much it is required.
+## CSS `display` Property
 
+The `display` property specifies the display behavior (the type of rendering box) of an element.
+Some common values for the display property are `inline`, `block`, `inline-block` and `flex`.
+
+SYNTAX:
+```
+.class-name {
+    display: display-property-value;
+}
+```
+<br>
+
+## CSS properties for flexboxes
+
+SYNTAX:
+```
+.class-name {
+    display: flex;
+    flex-direction: row OR column;
+    justify-content:
+    align-items:
+}
+```
+
+### `flex-direction` property
+
+This establishes the main-axis, thus defining the direction flex items are placed in the flex container.
+
+### `justify-content` property
+
+This property defines the alignment along the **main-axis**. It helps distribute extra free space leftover when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size.
+
+The possible values of this property are `flex-start`, `flex-end`, `space-around`, `space-between`, `space-evenly` and `center`.
+
+### `align-items` property
+
+This property defines the default behavior for how flex items are laid out along the cross axis on the current line. We can think of it as the justify-content version for the **cross-axis** (perpendicular to the main-axis).
