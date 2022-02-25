@@ -100,7 +100,7 @@ for more information.
 The HTML `<a>` element defines a hyperlink. It has the following attributes: 
 - `href` : Contains the URL of the destination which the hyperlink leads to.
 - `title` : Specifies extra information about an element. The information is shown as a **tooltip** text when the mouse moves over the element. 
-- `target` :  Specifies where to open the linked document.
+- `target` :  Specifies where to open the linked document. By setting the target attribute to `"_blank"`, the linked document is opened in a new window or tab.
 
 SYNTAX : 
 ```
@@ -108,11 +108,7 @@ SYNTAX :
 ```
 The hyperlink displays the text enclosed between the start and end tag to the user.
 
-We can **remove the underline of a hyperlink** using 
-
-- [this](###-underlineremoval) 
-
-method explained below.
+We can **remove the underline of a hyperlink** using [this](###-Removing-the-underline-of-a-hyperlink) method explained below.
 <br> <br>
 
 ### `<img>` element
@@ -303,7 +299,7 @@ This property defines the default behavior for how flex items are laid out along
 
 ## CSS `text-decoration` property 
 
-### underlineremoval
+### Removing the underline of a hyperlink
 
 By setting the `text-decoration` of a certain class to none, the hyperlinks of that particular class will not be underlined, as links generally are by default. 
 ```
