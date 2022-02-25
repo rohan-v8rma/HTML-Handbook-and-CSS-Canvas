@@ -108,8 +108,7 @@ SYNTAX :
 ```
 The hyperlink displays the text enclosed between the start and end tag to the user.
 
-We can **remove the underline of a hyperlink** using 
-- [this](###-Removing-the-underline-of-a-hyperlink) method explained below.
+We can **remove the underline of a hyperlink** using [this](###underlineremoval) method explained below.
 <br> <br>
 
 ### `<img>` element
@@ -300,7 +299,7 @@ This property defines the default behavior for how flex items are laid out along
 
 ## CSS `text-decoration` property 
 
-### Removing the underline of a hyperlink
+###underlineremoval
 
 By setting the `text-decoration` of a certain class to none, the hyperlinks of that particular class will not be underlined, as links generally are by default. 
 ```
