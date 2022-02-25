@@ -108,7 +108,8 @@ SYNTAX :
 ```
 The hyperlink displays the text enclosed between the start and end tag to the user.
 
-We can **remove the underline of a hyperlink** using [this](###underlineremoval) method explained below.
+We can **remove the underline of a hyperlink** using 
+- [this](###underlineremoval) method explained below.
 <br> <br>
 
 ### `<img>` element
