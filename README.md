@@ -100,6 +100,7 @@ for more information.
 The HTML `<a>` element defines a hyperlink. It has the following attributes: 
 - `href` : Contains the URL of the destination which the hyperlink leads to.
 - `title` : Specifies extra information about an element. The information is shown as a **tooltip** text when the mouse moves over the element. 
+- `target` :  Specifies where to open the linked document.
 
 SYNTAX : 
 ```
@@ -107,7 +108,8 @@ SYNTAX :
 ```
 The hyperlink displays the text enclosed between the start and end tag to the user.
 
-We can remove the underline of a hyperlink using [this](###-Removing-the-underline-of-a-hyperlink) method explained below.
+We can **remove the underline of a hyperlink** using 
+- [this](###-Removing-the-underline-of-a-hyperlink) method explained below.
 <br> <br>
 
 ### `<img>` element
