@@ -95,7 +95,7 @@ for more information.
 
 ## HTML elements
 
-### `<a>` element
+### `<a>` element (Hyperlink tag)
 
 The HTML `<a>` element defines a hyperlink. It has the following attributes: 
 - `href` : Contains the URL of the destination which the hyperlink leads to.
@@ -106,6 +106,8 @@ SYNTAX :
 <a href="url">Display text of hyperlink</a>
 ```
 The hyperlink displays the text enclosed between the start and end tag to the user.
+
+We can remove the underline of a hyperlink using [this](###-Removing-the-underline-of-a-hyperlink) method explained below.
 <br> <br>
 
 ### `<img>` element
@@ -293,3 +295,16 @@ The possible values of this property are `flex-start`, `flex-end`, `space-around
 ### `align-items` property
 
 This property defines the default behavior for how flex items are laid out along the cross axis on the current line. We can think of it as the justify-content version for the **cross-axis** (perpendicular to the main-axis).
+
+## CSS `text-decoration` property 
+
+### Removing the underline of a hyperlink
+
+By setting the `text-decoration` of a certain class to none, the hyperlinks of that particular class will not be underlined, as links generally are by default. 
+```
+.class-name {
+    text-decoration: none;
+}
+```
+Be careful when removing the text decoration on anchors since users often depend on the underline to denote hyperlinks.
+
