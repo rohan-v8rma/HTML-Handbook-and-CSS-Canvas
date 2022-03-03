@@ -88,7 +88,7 @@ Most importantly, the flexbox layout is **direction-agnostic** as opposed to the
 While those work well for pages, they lack flexibility to support large or complex applications (especially when it comes to orientation changing, resizing, stretching, shrinking, etc.).
 
 Refer 
-[CSS properties for flexboxes](##-CSS-properties-for-flexboxes) 
+[CSS properties for flexboxes](#css-properties-for-flexboxes) 
 below or 
 [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) 
 for more information.
@@ -108,7 +108,7 @@ SYNTAX :
 ```
 The hyperlink displays the text enclosed between the start and end tag to the user.
 
-We can **remove the underline of a hyperlink** using [this](###-Removing-the-underline-of-a-hyperlink) method explained below.
+We can **remove the underline of a hyperlink** using [this](#removing-the-underline-of-a-hyperlink) method explained below.
 <br> <br>
 
 ### `<img>` element
@@ -308,4 +308,6 @@ By setting the `text-decoration` of a certain class to none, the hyperlinks of t
 }
 ```
 Be careful when removing the text decoration on anchors since users often depend on the underline to denote hyperlinks.
+
+This is useful for removing hyperlink underlines from nav bars, a place where it's obvious a hyperlink is present and where we want to add our own formatting to the text.
 
