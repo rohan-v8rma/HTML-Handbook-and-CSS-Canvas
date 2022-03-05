@@ -42,18 +42,18 @@
 
 An HTML element is defined by a start tag, some content, and an end tag:
 
-```
+```html
 <tagname> Content goes here... </tagname>
 ```
 The HTML element is everything from the start tag to the end tag:
-```
+```html
 <h1>My First Heading</h1>
 ```
 Some HTML elements have no content (like the `<br>` element). These elements are called **empty elements**. Empty elements do not have an end tag!
 
 ## Template of an HTML document
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -188,13 +188,13 @@ It is an empty element, it contains attributes only which are as follows:
 
 #### Adding an external CSS stylesheet
 
-```
+```css
 <link rel="stylesheet" href="/css/styles.css">
 ```
 
 #### Adding a favicon
 
-```
+```css
 <link rel="icon" href="/images/favicon.png">
 ```
 NOTE: **favicon** is a small square image that represents a website in web browsers.
@@ -213,7 +213,7 @@ So, if we set the color of the body text to "blue", all headings, paragraphs, an
 CSS can be added to HTML documents in 3 ways:
 
 - **Inline** - Inline CSS uses the `style` attribute of an HTML element. This applies a unique style to a single HTML element.
-```
+```html
 ...
 <body>
     <h1 style = "color: limegreen;"> hello world </h1>    
@@ -221,7 +221,7 @@ CSS can be added to HTML documents in 3 ways:
 ...
 ```
 - **Internal** - Internal CSS is used to define a style for a single HTML page. It is defined in the `<head>` section of an HTML page, within a `<style>` element.
-```
+```css
 ...
 <head>
 <style>
@@ -242,7 +242,7 @@ p    {color: red;}
     - `rel` : Required. Specifies the relationship between the current document and the linked document
     - `href` : 	Specifies the location of the linked document, either as an absolute or relative URL.
 
-```
+```html
 ...
 <head>    
     <link rel="stylesheet" href="css/demostyles.css">
@@ -264,7 +264,7 @@ ID > CLASS > ELEMENT
 
 The element selector selects HTML elements based on the element name. <br>
 Syntax:
-```
+```css
 <HTML-element> {
     color: red;
 }
@@ -275,12 +275,12 @@ Syntax:
 The id selector uses the id attribute of an HTML element to select a specific element.
 
 **The id of an element is unique within a page**, so the id selector is used to select one unique element. 
-```
+```html
 <p id = "para1">HelloWorld</p>
 ```
 
 To select an element with a specific id, write a hash (#) character, followed by the id of the element. 
-```
+```css
 #para1 {
     color: red;
 }
@@ -288,12 +288,12 @@ To select an element with a specific id, write a hash (#) character, followed by
 ### CSS class selector
 
 The class selector selects HTML elements with a specific class attribute. An element can be a part of multiple classes.
-```
+```html
 <p class = "firstclass secondclass">HelloWorld</p>
 ```
 
 To select elements with a specific class, write a period `(.)` character, followed by the class name
-```
+```css
 .firstclass {
     color: red;
 }
@@ -305,7 +305,7 @@ The `display` property specifies the display behavior (the type of rendering box
 Some common values for the display property are `inline`, `block`, `inline-block` and `flex`.
 
 SYNTAX:
-```
+```css
 .class-name {
     display: display-property-value;
 }
@@ -314,7 +314,7 @@ SYNTAX:
 ## CSS properties for flexboxes
 
 SYNTAX:
-```
+```css
 .class-name {
     display: flex;
     flex-direction: row OR column;
@@ -342,7 +342,7 @@ This property defines the default behavior for how flex items are laid out along
 ### Removing the underline of a hyperlink
 
 By setting the `text-decoration` of a certain class to none, the hyperlinks of that particular class will not be underlined, as links generally are by default. 
-```
+```css
 .class-name {
     text-decoration: none;
 }
