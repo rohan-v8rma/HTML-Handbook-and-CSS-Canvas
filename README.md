@@ -140,6 +140,8 @@ The HTML `<a>` element defines a hyperlink. It has the following attributes:
 - `title` : Specifies extra information about an element. The information is shown as a **tooltip** text when the mouse moves over the element. 
 - `target` :  Specifies where to open the linked document. By setting the target attribute to `"_blank"`, the linked document is opened in a new window or tab.
 
+    Note that `target="_blank"` doesn't work in Markdown, meaning links from READMEs can't be opened in a new tab.
+
 SYNTAX : 
 ```
 <a href="url">Display text of hyperlink</a>
