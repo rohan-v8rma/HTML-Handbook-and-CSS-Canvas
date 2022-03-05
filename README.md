@@ -19,8 +19,8 @@
     - [`<div>` element](#div-element)
     - [`<header>` & `<footer>` element](#header--footer-element)
     - [`<link>` element](#link-element)
-      - [**Adding an external CSS stylesheet**](#adding-an-external-css-stylesheet)
-      - [**Adding a favicon**](#adding-a-favicon)
+      - [Adding an external CSS stylesheet](#adding-an-external-css-stylesheet)
+      - [Adding a favicon](#adding-a-favicon)
 - [CSS Reference](#css-reference)
   - [What is CSS?](#what-is-css)
   - [Using CSS](#using-css)
@@ -186,13 +186,13 @@ It is an empty element, it contains attributes only which are as follows:
 - `rel` : Specifies the relationship between the current document and the linked document.
 - `href` : Specifies the location of the linked file.
 
-#### **Adding an external CSS stylesheet**
+#### Adding an external CSS stylesheet
 
 ```
 <link rel="stylesheet" href="/css/styles.css">
 ```
 
-#### **Adding a favicon**
+#### Adding a favicon
 
 ```
 <link rel="icon" href="/images/favicon.png">
