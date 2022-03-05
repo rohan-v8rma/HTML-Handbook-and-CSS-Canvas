@@ -21,6 +21,20 @@
             - [Adding an external CSS stylesheet](#adding-an-external-css-stylesheet)
             - [Adding a favicon](#adding-a-favicon)
 
+- [CSS Reference](#css-reference)
+  - [What is CSS?](#what-is-css)
+  - [Using CSS](#using-css)
+  - [CSS Selectors](#css-selectors)
+    - [CSS element Selector](#css-element-selector)
+    - [CSS ID Selector](#css-id-selector)
+    - [CSS class selector](#css-class-selector)
+  - [CSS `display` Property](#css-display-property)
+  - [CSS properties for flexboxes](#css-properties-for-flexboxes)
+    - [`flex-direction` property](#flex-direction-property)
+    - [`justify-content` property](#justify-content-property)
+    - [`align-items` property](#align-items-property)
+  - [CSS `text-decoration` property](#css-text-decoration-property)
+    - [Removing the underline of a hyperlink](#removing-the-underline-of-a-hyperlink)
 
 # HTML Reference
 
