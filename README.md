@@ -221,7 +221,7 @@ CSS can be added to HTML documents in 3 ways:
 ...
 ```
 - **Internal** - Internal CSS is used to define a style for a single HTML page. It is defined in the `<head>` section of an HTML page, within a `<style>` element.
-```css
+```html
 ...
 <head>
 <style>
