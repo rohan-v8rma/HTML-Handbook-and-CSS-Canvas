@@ -138,9 +138,10 @@ for more information.
 The HTML `<a>` element defines a hyperlink. It has the following attributes: 
 - `href` : Contains the URL of the destination which the hyperlink leads to.
 - `title` : Specifies extra information about an element. The information is shown as a **tooltip** text when the mouse moves over the element. 
+- `rel` : By setting the rel attribute to `"noreferrer"` the destination website will see the request as **Direct Traffic** instead of **Referral**. Read more about it [here](https://www.reliablesoft.net/noreferrer-noopener/#noreferrer).
 - `target` :  Specifies where to open the linked document. By setting the target attribute to `"_blank"`, the linked document is opened in a new window or tab.
 
-    Note that `target="_blank"` doesn't work in Markdown, meaning links from READMEs can't be opened in a new tab.
+  Note that `target="_blank"` doesn't work in Github Flavored Markdown, meaning links from READMEs can't be opened in a new tab.
 
 SYNTAX : 
 ```
