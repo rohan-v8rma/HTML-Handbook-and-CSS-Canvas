@@ -33,6 +33,7 @@
     - [`flex-direction` property](#flex-direction-property)
     - [`justify-content` property](#justify-content-property)
     - [`align-items` property](#align-items-property)
+    - [`flex-grow` property](#flex-grow-property)
   - [CSS properties for images](#css-properties-for-images)
     - [`border-radius` property](#border-radius-property)
   - [CSS `text-decoration` property](#css-text-decoration-property)
@@ -331,15 +332,31 @@ SYNTAX:
 
 This establishes the main-axis, thus defining the direction flex items are placed in the flex container.
 
+<img src="README-images/flex-direction.svg" width="50%" />
+
 ### `justify-content` property
 
 This property defines the alignment along the **main-axis**. It helps distribute extra free space leftover when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size.
 
 The possible values of this property are `flex-start`, `flex-end`, `space-around`, `space-between`, `space-evenly` and `center`.
 
+<img src="README-images/justify-content.svg" width="50%" />
+
 ### `align-items` property
 
+<img src="README-images/align-items.svg" width="50%" />
+
 This property defines the default behavior for how flex items are laid out along the cross axis on the current line. We can think of it as the justify-content version for the **cross-axis** (perpendicular to the main-axis).
+
+### `flex-grow` property
+
+This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. It dictates what amount of the available space inside the flex container the item should take up.
+
+If all items have `flex-grow` set to 1, the remaining space in the container will be distributed equally to all children. If one of the children has a value of 2, that child would take up twice as much of the space either one of the others (or it will try, at least).
+
+<img src="README-images/flex-grow.svg" width="50%" />
+
+If only one item has the `flex-grow` property, it will take up all the remaining available space.
 
 ## CSS properties for images
 
