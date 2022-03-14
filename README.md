@@ -344,9 +344,10 @@ The possible values of this property are `flex-start`, `flex-end`, `space-around
 
 ### `align-items` property
 
-<img src="README-images/align-items.svg" width="50%" />
+This property defines the default behavior for how flex items are laid out along the cross axis on the current line. We can think of it as the justify-content version 
+for the **cross-axis** (perpendicular to the main-axis).
 
-This property defines the default behavior for how flex items are laid out along the cross axis on the current line. We can think of it as the justify-content version for the **cross-axis** (perpendicular to the main-axis).
+<img src="README-images/align-items.svg" width="50%" />
 
 ### `flex-grow` property
 
