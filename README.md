@@ -33,6 +33,8 @@
     - [`flex-direction` property](#flex-direction-property)
     - [`justify-content` property](#justify-content-property)
     - [`align-items` property](#align-items-property)
+  - [CSS properties for images](#css-properties-for-images)
+    - [`border-radius` property](#border-radius-property)
   - [CSS `text-decoration` property](#css-text-decoration-property)
     - [Removing the underline of a hyperlink](#removing-the-underline-of-a-hyperlink)
 
@@ -160,7 +162,8 @@ Images are not technically inserted into a web page; images are linked to web pa
 - `src` : Specifies the path to the image.
 - `alt` : Specifies an alternate text for the image, if the image for some reason cannot be displayed. This text is also used by screen readers for telling about the image.
 - `title` : Specifies the title of the image which is visible as a tooltip upon hovering on the image.
-<br> <br>
+
+Checkout [these](#css-properties-for-images) CSS properties related to images.
 
 ### `<div>` element
 
@@ -337,6 +340,20 @@ The possible values of this property are `flex-start`, `flex-end`, `space-around
 ### `align-items` property
 
 This property defines the default behavior for how flex items are laid out along the cross axis on the current line. We can think of it as the justify-content version for the **cross-axis** (perpendicular to the main-axis).
+
+## CSS properties for images
+
+SYNTAX:
+```css
+.class-name-of-image {
+    border-radius: 50%
+}
+```
+
+### `border-radius` property
+
+This property is useful for rounding corners of images. 
+It can also be used to display images which are actually square but with a circular border, by setting the property value to `50%`.
 
 ## CSS `text-decoration` property 
 
