@@ -1,45 +1,52 @@
 # INDEX
+<!-- TOC -->
 
 - [INDEX](#index)
 - [HTML Reference](#html-reference)
-  - [What is an HTML Element?](#what-is-an-html-element)
-  - [Template of an HTML document](#template-of-an-html-document)
-  - [What are HTML Attributes?](#what-are-html-attributes)
-  - [What is the Role of a Web Browser in this process?](#what-is-the-role-of-a-web-browser-in-this-process)
-  - [HTML Inline, Block & Flex elements](#html-inline-block--flex-elements)
-    - [Block-level element](#block-level-element)
-    - [Inline element](#inline-element)
-    - [Inline-block](#inline-block)
-      - [Features `display: inline-block` has over `display: inline`](#features-display-inline-block-has-over-display-inline)
-      - [Features `display: inline-block` has over `display: block`](#features-display-inline-block-has-over-display-block)
-    - [Flexbox](#flexbox)
-  - [HTML elements](#html-elements)
-    - [`<a>` element (Hyperlink tag)](#a-element-hyperlink-tag)
-    - [`<img>` element](#img-element)
-    - [`<div>` element](#div-element)
-    - [`<header>` & `<footer>` element](#header--footer-element)
-    - [`<link>` element](#link-element)
-      - [Adding an external CSS stylesheet](#adding-an-external-css-stylesheet)
-      - [Adding a favicon](#adding-a-favicon)
+    - [What is an HTML Element?](#what-is-an-html-element)
+    - [Template of an HTML document](#template-of-an-html-document)
+    - [What are HTML Attributes?](#what-are-html-attributes)
+    - [What is the Role of a Web Browser in this process?](#what-is-the-role-of-a-web-browser-in-this-process)
+    - [HTML Inline, Block & Flex elements](#html-inline-block--flex-elements)
+        - [Block-level element](#block-level-element)
+        - [Inline element](#inline-element)
+        - [Inline-block](#inline-block)
+            - [Features display: inline-block has over display: inline](#features-display-inline-block-has-over-display-inline)
+            - [Features display: inline-block has over display: block](#features-display-inline-block-has-over-display-block)
+        - [Flexbox](#flexbox)
+    - [HTML elements](#html-elements)
+        - [<a> element Hyperlink tag](#a-element-hyperlink-tag)
+        - [<img> element](#img-element)
+        - [<div> element](#div-element)
+        - [<header> & <footer> element](#header--footer-element)
+        - [<link> element](#link-element)
+            - [Adding an external CSS stylesheet](#adding-an-external-css-stylesheet)
+            - [Adding a favicon](#adding-a-favicon)
+    - [Writing Semantic HTML](#writing-semantic-html)
+    - [Non-breaking Space &nbsp](#non-breaking-space-nbsp)
 - [CSS Reference](#css-reference)
-  - [What is CSS?](#what-is-css)
-  - [Using CSS](#using-css)
-  - [Text Wrapping in CSS](#text-wrapping-in-css)
-    - [What is Text Wrapping?](#what-is-text-wrapping)
-  - [CSS Selectors](#css-selectors)
-    - [CSS element Selector](#css-element-selector)
-    - [CSS ID Selector](#css-id-selector)
-    - [CSS class selector](#css-class-selector)
-  - [CSS `display` Property](#css-display-property)
-  - [CSS properties for flexboxes](#css-properties-for-flexboxes)
-    - [`flex-direction` property](#flex-direction-property)
-    - [`justify-content` property](#justify-content-property)
-    - [`align-items` property](#align-items-property)
-    - [`flex-grow` property](#flex-grow-property)
-  - [CSS properties for images](#css-properties-for-images)
-    - [`border-radius` property](#border-radius-property)
-  - [CSS `text-decoration` property](#css-text-decoration-property)
-    - [Removing the underline of a hyperlink](#removing-the-underline-of-a-hyperlink)
+    - [What is CSS?](#what-is-css)
+    - [Using CSS](#using-css)
+    - [Text Wrapping in CSS](#text-wrapping-in-css)
+        - [What is Text Wrapping?](#what-is-text-wrapping)
+    - [CSS Selectors](#css-selectors)
+        - [CSS element Selector](#css-element-selector)
+        - [CSS ID Selector](#css-id-selector)
+        - [CSS class selector](#css-class-selector)
+    - [Adding a font in CSS](#adding-a-font-in-css)
+    - [width, margin, border and padding of an element](#width-margin-border-and-padding-of-an-element)
+    - [CSS display Property](#css-display-property)
+    - [CSS properties for flexboxes](#css-properties-for-flexboxes)
+        - [flex-direction property](#flex-direction-property)
+        - [justify-content property](#justify-content-property)
+        - [align-items property](#align-items-property)
+        - [flex-grow property](#flex-grow-property)
+    - [CSS properties for images](#css-properties-for-images)
+        - [border-radius property](#border-radius-property)
+    - [CSS text-decoration property](#css-text-decoration-property)
+        - [Removing the underline of a hyperlink](#removing-the-underline-of-a-hyperlink)
+
+<!-- /TOC -->
 
 # HTML Reference
 
@@ -55,6 +62,7 @@ The HTML element is everything from the start tag to the end tag:
 <h1>My First Heading</h1>
 ```
 Some HTML elements have no content (like the `<br>` element). These elements are called **empty elements**. Empty elements do not have an end tag!
+
 
 ## Template of an HTML document
 
@@ -87,7 +95,7 @@ Some HTML elements have no content (like the `<br>` element). These elements are
 
 ## What is the Role of a Web Browser in this process?
 
-The purpose of a web browser (Chrome, Edge, Firefox, Safari) is to read HTML documents and display them correctly.
+The purpose of a web browser (Chrome, Edge, Firefox, Safari) is interpret HTML files, CSS files and Javascript files into a website that should be displayed.
 
 A browser does not display the HTML tags, rather it uses them to determine how to display the document.
 
@@ -206,6 +214,20 @@ It is an empty element, it contains attributes only which are as follows:
 ```
 NOTE: **favicon** is a small square image that represents a website in web browsers.
 
+##  Writing Semantic HTML
+
+TODO
+
+## Non-breaking Space `&nbsp`
+
+A commonly used entity in HTML is the non-breaking space: `&nbsp;`
+
+A non-breaking space is a space that will not break into a new line.
+
+Two words separated by a non-breaking space will stick together (not bSreak into a new line). This is handy when breaking the words might be disruptive.
+
+If you write 10 spaces in your text, the browser will remove 9 of them. To add real spaces to your text, you can use the `&nbsp;` character entity.
+
 # CSS Reference
 
 ## What is CSS?
@@ -309,6 +331,61 @@ To select elements with a specific class, write a period `(.)` character, follow
     color: red;
 }
 ```
+
+## Adding a font in CSS
+
+We can any font in CSS using its .ttf ([TrueType font standard](https://en.wikipedia.org/wiki/TrueType)) or .otf ([OpenType font standard](https://en.wikipedia.org/wiki/OpenType)) file. 
+
+The best option would be to have the file downloaded locally in a `fonts` folder to ensure its availability because it might get removed in case of online sources.
+
+The syntax for doing the same using a `font-face` declaration is:
+
+```css
+@font-face {
+  font-family: <name-of-font-to-be-used>;
+  src: ../fonts/Inter.ttf;
+}
+```
+
+The value of the `font-family` property is name which is uused when we want to use this font somewhere in our stylesheet. The font `Inter` is taken as an example over here.
+
+Another way to make this code more reliable is to specify the font file type in the `src` property.
+
+```css
+@font-face {
+  font-family: <name-of-font-to-be-used>;
+  src: 
+      url('../fonts/Inter.ttf')
+      format('truetype');
+}
+```
+OR
+```css
+@font-face {
+  font-family: <name-of-font-to-be-used>;
+  src: 
+      url('../fonts/Sans.otf')
+      format('opentype');
+}
+```
+
+
+
+## `width`, `margin`, `border` and `padding` of an element
+
+Width:
+
+Padding: 
+
+Border:
+
+<!--- TODO insert illustration --->
+
+Note that `margin`, `border`,  `padding` and `width` property combined account for the overall width of an element.
+
+It's not like `width` is relative to the parent and `margin` and `padding` is relative to the `width`. 
+
+For example, if we keep the `width` property of a block to be 25% and `padding` property of a block to be 25%, the block will combined take up 50% of its parent.
 
 ## CSS `display` Property
 
