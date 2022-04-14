@@ -24,6 +24,8 @@
 - [CSS Reference](#css-reference)
   - [What is CSS?](#what-is-css)
   - [Using CSS](#using-css)
+  - [Text Wrapping in CSS](#text-wrapping-in-css)
+    - [What is Text Wrapping?](#what-is-text-wrapping)
   - [CSS Selectors](#css-selectors)
     - [CSS element Selector](#css-element-selector)
     - [CSS ID Selector](#css-id-selector)
@@ -208,7 +210,6 @@ NOTE: **favicon** is a small square image that represents a website in web brows
 
 ## What is CSS?
 
-
 CSS (*Cascading Style Sheets*) is the language we use to style an HTML document. It is used to format the layout of a webpage, meaning how HTML elements should be displayed. <br>
 NOTE: The word **cascading** refers to the fact that a style applied to a parent element will also apply to all children elements within the parent. <br>
 So, if we set the color of the body text to "blue", all headings, paragraphs, and other text elements within the body will also get the same color (unless we specify something else).
@@ -260,6 +261,11 @@ p    {color: red;}
 ```
 
 The most common way to add CSS, is to keep the styles in external CSS files. 
+
+## Text Wrapping in CSS
+
+### What is Text Wrapping?
+
 
 ## CSS Selectors
 
@@ -318,13 +324,16 @@ SYNTAX:
 
 ## CSS properties for flexboxes
 
+Refer [this](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-background) article for more in-depth explanation.
+
 SYNTAX:
 ```css
 .class-name {
     display: flex;
     flex-direction: row OR column;
-    justify-content:
-    align-items:
+    justify-content: ;
+    flex-grow: 1;
+    align-items: ;
 }
 ```
 
