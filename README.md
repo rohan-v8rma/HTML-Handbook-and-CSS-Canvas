@@ -14,6 +14,8 @@
             - [Features display: inline-block has over display: inline](#features-display-inline-block-has-over-display-inline)
             - [Features display: inline-block has over display: block](#features-display-inline-block-has-over-display-block)
         - [Flexbox](#flexbox)
+            - [Properties of children of a flex container](#properties-of-children-of-a-flex-container)
+            - [Difference b/w `flex` and `flex-grow` property of children of a flex container]()
     - [HTML elements](#html-elements)
         - [`<a>` element Hyperlink tag](#a-element-hyperlink-tag)
         - [`<img>` element](#img-element)
@@ -33,9 +35,15 @@
         - [CSS element Selector](#css-element-selector)
         - [CSS ID Selector](#css-id-selector)
         - [CSS class selector](#css-class-selector)
+        - [CSS `:hover` selector](#css-hover-selector)
+        - [CSS `:link` selector](#css-link-selector)
+        - [CSS `:visited` selector](#css-visited-selector)       
+        - [CSS `:active` selector](#css-active-selector)
     - [Adding a font in CSS](#adding-a-font-in-css)
-    - [width, margin, border and padding of an element](#width-margin-border-and-padding-of-an-element)
-    - [CSS display Property](#css-display-property)
+    - [`width`, `margin`, `border` and `padding` of an element](#width-margin-border-and-padding-of-an-element)
+    - [CSS `display` Property](#css-display-property)
+    - [CSS `transition` Property](#css-transition-property)
+    - [Setting line spacing in HTML using CSS `line-height` property](#setting-line-spacing-in-html-using-css-line-height-property)
     - [CSS properties for flexboxes](#css-properties-for-flexboxes)
         - [flex-direction property](#flex-direction-property)
         - [justify-content property](#justify-content-property)
@@ -130,13 +138,23 @@ An element with `display: inline-block` combines properties of inline and block.
 
 flex is a value which can be assigned to the CSS `display` property of an HTML element.
 
-The Flexbox layout gives the container the ability to alter its items’ width/height (and order) to best fill the available space in order to accommodate to all kind of display devices and screen sizes. 
-
 A flex container expands items to fill available free space or shrinks them to prevent overflow.
 
 Most importantly, the flexbox layout is **direction-agnostic** as opposed to the regular layouts (block which is vertically-based and inline which is horizontally-based). 
 
 While those work well for pages, they lack flexibility to support large or complex applications (especially when it comes to orientation changing, resizing, stretching, shrinking, etc.).
+
+### Properties of children of a flex container
+
+The Flexbox layout gives the PARENT container the ability to alter its items’ width/height (and order) to best fill the available space in order to accommodate to all kind of display devices and screen sizes. 
+
+NOTE that even if the container's children are `<span>` elements, which are by-default [`inline`](#inline-element) elements, their behaviour will be converted similar to [`block`](#block-level-element) or [`inline-block`](#inline-block) so that their width and height can be manipulated.
+
+### Difference b/w `flex` and `flex-grow` property of children of a flex container
+
+It is generally not advisable to use `flex-grow: 1` for all children because `flex-grow` allocates the remaining space after each child takes its minimum required space. So, the behaviour can be unpredicatable in this situation.
+
+`flex: 1` creates a definite ratio between the children such that the total space a child takes up is equal to that ratio. 
 
 Refer 
 [CSS properties for flexboxes](#css-properties-for-flexboxes) 
@@ -332,6 +350,26 @@ To select elements with a specific class, write a period `(.)` character, follow
 }
 ```
 
+### CSS `:link` selector
+
+We can use the `:link` selector to style links to unvisited pages.
+
+### CSS `:visited` selector
+
+We can use the `:visited` selector to style links to visited pages.
+
+### CSS `:active` selector
+
+We can use the `:active` selector to style the active link.
+
+### CSS `:hover` selector
+
+The `:hover` selector is used to select elements when you mouse over them. 
+
+Although it used on links usually, it can be used to select other elements as well.
+
+Note: `:hover` MUST come after [`:link`](#css-link-selector) and [`:visited`](#css-visited-selector) (if they are present) in the CSS definition, in order to be effective!
+
 ## Adding a font in CSS
 
 We can any font in CSS using its .ttf ([TrueType font standard](https://en.wikipedia.org/wiki/TrueType)) or .otf ([OpenType font standard](https://en.wikipedia.org/wiki/OpenType)) file. 
@@ -399,6 +437,43 @@ SYNTAX:
 }
 ```
 
+## CSS `transition` Property
+
+CSS transitions allows us to change property values smoothly, over a given duration.
+
+To create a transition effect, we must specify two things:
+
+- the CSS property we want to add an effect to 
+- the duration of the effect
+
+Note: If the duration part is not specified, their will be no transition, rather the change will take place instantly, because the default value is 0.
+
+An example of usage of `transition` property:
+```css
+.nav-bar-button {
+  width: 100px;
+  height: 100px;
+  background: red;
+  transition: width 2s;
+  /*The width will change over 2 seconds*/
+}
+```
+
+We can use the `:hover` selector in conjunction with this to make an element change its property smoothly when we hover over it.
+
+## Setting line spacing in HTML using CSS `line-height` property
+
+Line spacing is the amount of space between lines of text within a paragraph (`<p>` element of HTML) in HTML.
+
+![line spacing](./README-images/line-spacing.png)
+
+It can be set by using the `line-height` property of CSS. 
+The line height refers to the total height of a line including the height of the font and the space above it.
+
+`line-height` is usually set as a percentage, which is in reference to the height of the font. 
+
+An acceptable value is 150%, which means the distance between the base of a line and the letters of the line below it would be half the height of the letters of that particular font.
+
 ## CSS properties for flexboxes
 
 Refer [this](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-background) article for more in-depth explanation.
@@ -437,9 +512,12 @@ for the **cross-axis** (perpendicular to the main-axis).
 
 ### `flex-grow` property
 
-This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. It dictates what amount of the available space inside the flex container the item should take up.
+(Note that it is advisable to use `flex` property instead of `flex-grow`. 
+Check out the explanation over [here](#difference-bw-flex-and-flex-grow-property-of-children-of-a-flex-container).)
 
-If all items have `flex-grow` set to 1, the remaining space in the container will be distributed equally to all children. If one of the children has a value of 2, that child would take up twice as much of the space either one of the others (or it will try, at least).
+This defines the ability for a flex item to grow **if necessary**. It accepts a unitless value that serves as a proportion. It dictates what amount of the available space inside the flex container the item should take up.
+
+If all items have `flex-grow` set to 1, **the remaining space in the container** will be distributed equally to all children. If one of the children has a value of 2, that child would take up twice as much of the space either one of the others (or it will try, at least).
 
 <img src="README-images/flex-grow.svg" width="50%" />
 
