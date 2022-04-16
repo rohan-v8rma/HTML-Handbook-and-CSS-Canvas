@@ -1,9 +1,47 @@
+.html-and-body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    height: 100%;
+}
+p {
+    padding: 0;
+    margin: 0;
+}
+
 body {
-    background-color: yellow;
+    display: flex;
+    flex-direction: row;
 }
-.firstclass {
-    color: orange;
+.first-class {
+    display: inline-block;
+    background-color: orange;
+    
+    text-align: center;
+
+    margin: 4%;
+    flex: 0.5;
 } 
-.secondclass {
-    color: purple;
+.second-class {
+    display: inline-block;
+    background-color: purple;
+
+    text-align: center;
+
+    margin: 2%;
+    flex: 0.5;
 }
+
+/*
+If we inspect the webpage and see,
+even when there is a difference in amount of margin in 
+each of the elements, the width they occupy is exactly
+equal in both the elements.
+
+So, we can concluded that the amount of margin doesn't
+affect the flex ratios.
+
+Also note that this margin is still a percentage of the parent,
+i.e., the `body` element.
+*/
