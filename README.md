@@ -19,6 +19,7 @@
     - [HTML elements](#html-elements)
         - [`<a>` element Hyperlink tag](#a-element-hyperlink-tag)
         - [`<img>` element](#img-element)
+        - [Difference between `src` and `href` attribute](#difference-between-src-and-href-attribute)
         - [`<div>` element](#div-element)
         - [`<header>` & `<footer>` element](#header--footer-element)
         - [`<link>` element](#link-element)
@@ -193,6 +194,30 @@ Images are not technically inserted into a web page; images are linked to web pa
 - `title` : Specifies the title of the image which is visible as a tooltip upon hovering on the image.
 
 Checkout [these](#css-properties-for-images) CSS properties related to images.
+
+### Difference between `src` and `href` attribute
+
+There is a differentiation between src and href and they can't be used interchangeably. We use `src` for **replaced elements** (A replaced element is any element whose appearance and dimensions are defined by an external resource.) while `href` for establishing a relationship between the referencing document and an external resource.
+
+`href` (Hypertext Reference) attribute specifies the location of a Web resource thus defining a link or relationship between the current element (in case of anchor `<a>`) or current document (in case of `<link>`) and the destination anchor or resource defined by this attribute. When we write:
+
+```html
+<link href="style.css" rel="stylesheet" />
+```
+
+The browser understands that this resource is a stylesheet and the parsing (analyzing the code according to syntax rules) of the page is not paused (rendering might be paused since the browser needs the style rules to paint and render the page). It is not similar to dumping the contents of the css file inside the `<style>` tag. (Hence it is advisable to use `<link>` rather than `@import` for attaching stylesheets to your html document.)
+
+`src` (Source) attribute just embeds the resource in the current document at the location of the element's definition. For eg. When the browser finds
+
+```html
+<script src="script.js"></script>
+```
+
+The loading and processing of the page is paused until this the browser fetches, compiles and executes the file. It is similar to dumping the contents of the js file inside the `<script>` tag. 
+
+Similar is the case with `<img>` tag. It is an empty tag and the content, that should come inside it, is defined by the `src` attribute. The browser pauses the loading until it fetches and loads the image.
+
+This is the reason why it is advisable to load all JavaScript files at the bottom (before the `</body>` tag) to prevent frequent loading.
 
 ### `<div>` element
 
@@ -415,7 +440,7 @@ Width:
 
 Padding: 
 
-Border:
+Border: Note that border doesn't have any width
 
 <!--- TODO insert illustration --->
 
