@@ -20,6 +20,8 @@
         - [`<a>` element Hyperlink tag](#a-element-hyperlink-tag)
         - [`<img>` element](#img-element)
         - [Difference between `src` and `href` attribute](#difference-between-src-and-href-attribute)
+            - [Difference between *parsing* and *rendering*](#difference-between-parsing-and-rendering)
+        - [Using `<i>` and `<span>` for adding icons](#using-i-and-span-for-adding-icons)
         - [`<div>` element](#div-element)
         - [`<header>` & `<footer>` element](#header--footer-element)
         - [`<link>` element](#link-element)
@@ -27,6 +29,7 @@
             - [Adding a favicon](#adding-a-favicon)
     - [Writing Semantic HTML](#writing-semantic-html)
     - [Non-breaking Space `&nbsp`](#non-breaking-space-nbsp)
+        - [Why we shouldn't use it](#why-we-shouldnt-use-it)
 - [CSS Reference](#css-reference)
     - [What is CSS?](#what-is-css)
     - [Using CSS](#using-css)
@@ -41,6 +44,14 @@
         - [CSS `:visited` selector](#css-visited-selector)       
         - [CSS `:active` selector](#css-active-selector)
     - [Adding a font in CSS](#adding-a-font-in-css)
+    - [Viewport](#viewport)
+        - [Viewport based units](#viewport-based-units)   
+            - [Viewport Height `vh`](#viewport-height-vh)
+            - [Viewport Width `vw`](#viewport-width-vw)
+            - [Viewport Minimum `vmin`](#viewport-minimum-vmin)
+            - [Viewport Maximum `vmax`](#viewport-maximum-vmax)
+        - [Difference of Viewport units from percentages](#difference-of-viewport-units-from-percentages)
+        - [Usage of viewport units](#usage-of-viewport-units)
     - [`width`, `margin`, `border` and `padding` of an element](#width-margin-border-and-padding-of-an-element)
     - [CSS `display` Property](#css-display-property)
     - [CSS `transition` Property](#css-transition-property)
@@ -197,7 +208,7 @@ Checkout [these](#css-properties-for-images) CSS properties related to images.
 
 ### Difference between `src` and `href` attribute
 
-There is a differentiation between src and href and they can't be used interchangeably. We use `src` for **replaced elements** (A replaced element is any element whose appearance and dimensions are defined by an external resource.) while `href` for establishing a relationship between the referencing document and an external resource.
+There is a differentiation between src and href and they can't be used interchangeably. We use `src` for **replaced elements** (A replaced element is any element whose appearance and dimensions are defined by an external resource.) while `href` is used for establishing a relationship between the referencing document and an external resource.
 
 `href` (Hypertext Reference) attribute specifies the location of a Web resource thus defining a link or relationship between the current element (in case of anchor `<a>`) or current document (in case of `<link>`) and the destination anchor or resource defined by this attribute. When we write:
 
@@ -205,7 +216,7 @@ There is a differentiation between src and href and they can't be used interchan
 <link href="style.css" rel="stylesheet" />
 ```
 
-The browser understands that this resource is a stylesheet and the parsing (analyzing the code according to syntax rules) of the page is not paused (rendering might be paused since the browser needs the style rules to paint and render the page). It is not similar to dumping the contents of the css file inside the `<style>` tag. (Hence it is advisable to use `<link>` rather than `@import` for attaching stylesheets to your html document.)
+The browser understands that this resource is a `stylesheet` and the [**parsing**](#difference-between-parsing-and-rendering) (analyzing the code according to syntax rules) of the page is not paused ([**rendering**](#difference-between-parsing-and-rendering) might be paused since the browser needs the style rules to paint and render the page). It is not similar to dumping the contents of the css file inside the `<style>` tag. (Hence it is advisable to use `<link>` rather than `@import` for attaching stylesheets to your html document.)
 
 `src` (Source) attribute just embeds the resource in the current document at the location of the element's definition. For eg. When the browser finds
 
@@ -218,6 +229,34 @@ The loading and processing of the page is paused until this the browser fetches,
 Similar is the case with `<img>` tag. It is an empty tag and the content, that should come inside it, is defined by the `src` attribute. The browser pauses the loading until it fetches and loads the image.
 
 This is the reason why it is advisable to load all JavaScript files at the bottom (before the `</body>` tag) to prevent frequent loading.
+
+#### Difference between *parsing* and *rendering*
+
+- Parsing turns arrays of pixels or sequences of letters into concepts. 
+    
+    Rendering turns concepts into arrays of pixels or sequences of letters. 
+
+- Parsing seeks to infer a symbolic representation from sensory input (typed source code).
+    
+    Rendering turns said symbolic representation into a sensory experience. 
+
+So over here, parsing is an intermediate step to rendering. Parsing a page means taking the source code (sequence of letters) and using syntactical rules to make logical sense of it. This logic is then used to display pixels on the screen (rendering).
+
+
+
+### Using `<i>` and `<span>` for adding icons
+
+`<i>` is used for icons because it is:
+
+- Short
+- **i** can mean icon (although not in HTML)
+- It adds semantic meaning to an icon element.
+
+    The alternative option to carry an icon class by itself is `<span>`, which of course has no semantic meaning whatsoever. When a machine asks the `<span>` what it contains, it says, "I don't know. Could be anything." 
+    
+    But the `<i>` tag says, "I contain a different way of saying something than the usual way, or maybe an unfamiliar term." That's not the same as "I contain an icon," but it's a lot closer to it than `<span>` got!
+
+It is an awful practice but it is a triumph of performance over semantics.
 
 ### `<div>` element
 
@@ -270,6 +309,10 @@ A non-breaking space is a space that will not break into a new line.
 Two words separated by a non-breaking space will stick together (not bSreak into a new line). This is handy when breaking the words might be disruptive.
 
 If you write 10 spaces in your text, the browser will remove 9 of them. To add real spaces to your text, you can use the `&nbsp;` character entity.
+
+### Why we shouldn't use it
+
+However, this character shouldn't be used in webpages to create gaps because it is absolute in nature.
 
 # CSS Reference
 
@@ -365,7 +408,7 @@ To select an element with a specific id, write a hash (#) character, followed by
 
 The class selector selects HTML elements with a specific class attribute. An element can be a part of multiple classes.
 ```html
-<p class = "firstclass secondclass">HelloWorld</p>
+<p class="firstclass secondclass">HelloWorld</p>
 ```
 
 To select elements with a specific class, write a period `(.)` character, followed by the class name
@@ -432,7 +475,47 @@ OR
 }
 ```
 
+## Viewport
 
+The viewport is the user's visible area of a web page. The viewport varies with the device, and will be smaller on a mobile phone than on a computer screen.
+
+### Viewport based units
+
+There are four viewport-based units in CSS. These are `vh`, `vw`, `vmin` and `vmax`.
+
+#### Viewport Height `vh` 
+
+This unit is based on the height of the viewport. A value of 1vh is equal to 1% of the viewport height.
+
+#### Viewport Width `vw`
+ 
+This unit is based on the width of the viewport. A value of 1vw is equal to 1% of the viewport width.
+
+#### Viewport Minimum `vmin`
+
+This unit is based on the smaller dimension of the viewport. If the viewport height is smaller than the width, the value of 1vmin will be equal to 1% of the viewport height, and vice versa.
+
+#### Viewport Maximum `vmax`
+
+This unit is based on the larger dimension of the viewport. If the viewport height is larger than the width, the value of 1vmax will be equal to 1% of viewport height, and vice versa.
+
+### Difference of Viewport units from percentages
+
+Viewport units may sound similar to percentages. However, they’re very different. 
+
+In the case of percentages, the width or height of the child element is determined with respect to its parent.  
+
+In this case, the units always stay relative to the size of the webpage.
+
+### Usage of viewport units
+
+We can set an HTML element to take the full height of the screen visible to the user.
+
+```css
+body {
+    min-height: 100vh;
+}
+```
 
 ## `width`, `margin`, `border` and `padding` of an element
 
