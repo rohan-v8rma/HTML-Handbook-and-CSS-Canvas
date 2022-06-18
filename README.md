@@ -39,6 +39,9 @@
         - [CSS `:visited` selector](#css-visited-selector)       
         - [CSS `:active` selector](#css-active-selector)
     - [Adding a font in CSS](#adding-a-font-in-css)
+        - [Using locally downloaded fonts](#using-locally-downloaded-fonts)
+        - [Using Google Fonts](#using-google-fonts)
+        - [Fallback fonts](#fallback-fonts)
     - [Viewport](#viewport)
         - [Viewport based units](#viewport-based-units)   
             - [Viewport Height `vh`](#viewport-height-vh)
@@ -67,6 +70,7 @@
     - [Difference between `src` and `href` attribute](#difference-between-src-and-href-attribute)
         - [Difference between *parsing* and *rendering*](#difference-between-parsing-and-rendering)
     - [Using `<i>` and `<span>` for adding icons](#using-i-and-span-for-adding-icons)
+    - [Why do browsers display HTML documents with some minimal amount of padding/margin?](#why-do-browsers-display-html-documents-with-some-minimal-amount-of-paddingmargin)
 <!-- /TOC -->
 
 # HTML Reference
@@ -383,9 +387,9 @@ Note: `:hover` MUST come after [`:link`](#css-link-selector) and [`:visited`](#c
 
 ## Adding a font in CSS
 
-We can any font in CSS using its .ttf ([TrueType font standard](https://en.wikipedia.org/wiki/TrueType)) or .otf ([OpenType font standard](https://en.wikipedia.org/wiki/OpenType)) file. 
+### Using locally downloaded fonts
 
-The best option would be to have the file downloaded locally in a `fonts` folder to ensure its availability because it might get removed in case of online sources.
+The best option would be to have the `.ttf` ([TrueType font standard](https://en.wikipedia.org/wiki/TrueType)) or `.otf` ([OpenType font standard](https://en.wikipedia.org/wiki/OpenType)) file downloaded locally in a `fonts` folder to ensure its availability because it might get removed in case of online sources.
 
 The syntax for doing the same using a `font-face` declaration is:
 
@@ -417,6 +421,20 @@ OR
       format('opentype');
 }
 ```
+
+### Using Google Fonts
+
+We also have the option of using [Google Fonts](https://fonts.google.com/), which are free to use, and have more than 1000 fonts to choose from. We can copy-paste the code for a specific font which would be in the following format:
+```css
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
+```
+into our CSS file and using the name of the font as regular.
+
+### Fallback fonts
+
+HTML does have default fonts as well which don't require importing and our system also has its own fonts. 
+
+The `font-family` CSS property, which specifies the font for an element, can hold several font names as a **"fallback"** system, so that in case any of our imported fonts is inaccessible, there is a backup in order to avoid unexpected behaviors.
 
 ## Viewport
 
@@ -660,3 +678,15 @@ So over here, parsing is an intermediate step to rendering. Parsing a page means
     But the `<i>` tag says, "I contain a different way of saying something than the usual way, or maybe an unfamiliar term." That's not the same as "I contain an icon," but it's a lot closer to it than `<span>` got!
 
 It is an awful practice but it is a triumph of performance over semantics.
+
+## Why do browsers display HTML documents with some minimal amount of padding/margin?
+
+Languages are originally built to work independently. So that you could technically use that particular language for what is intended for only. In the case of HTML, it is only supposed to allow you to display something on a browser. 
+
+CSS on the other hand, is intended to create all the beautification process. 
+
+So, with that in mind, Anyone should be able to write an HTML document WITHOUT any CSS at all and browsers should display it in the most legible form. Now, for this to happen as consistent as possible, browsers have something called "sane defaults". 
+
+These defaults cover the margin and padding on the body, some fonts, the most legible font size, etc. And they leave it up to you to overwrite as needed with CSS.
+
+Without the margin and padding on the body, everything would be completely flushed to the browser window. That is not the best practice if you were reading a document.
