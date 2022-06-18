@@ -19,17 +19,12 @@
     - [HTML elements](#html-elements)
         - [`<a>` element Hyperlink tag](#a-element-hyperlink-tag)
         - [`<img>` element](#img-element)
-        - [Difference between `src` and `href` attribute](#difference-between-src-and-href-attribute)
-            - [Difference between *parsing* and *rendering*](#difference-between-parsing-and-rendering)
-        - [Using `<i>` and `<span>` for adding icons](#using-i-and-span-for-adding-icons)
         - [`<div>` element](#div-element)
         - [`<header>` & `<footer>` element](#header--footer-element)
         - [`<link>` element](#link-element)
             - [Adding an external CSS stylesheet](#adding-an-external-css-stylesheet)
             - [Adding a favicon](#adding-a-favicon)
-    - [Writing Semantic HTML](#writing-semantic-html)
     - [Non-breaking Space `&nbsp`](#non-breaking-space-nbsp)
-        - [Why we shouldn't use it](#why-we-shouldnt-use-it)
 - [CSS Reference](#css-reference)
     - [What is CSS?](#what-is-css)
     - [Using CSS](#using-css)
@@ -65,7 +60,13 @@
         - [border-radius property](#border-radius-property)
     - [CSS text-decoration property](#css-text-decoration-property)
         - [Removing the underline of a hyperlink](#removing-the-underline-of-a-hyperlink)
-
+- [Important Concepts](#important-concepts)
+    - [Removing the underline of a hyperlink using the CSS `text decoration` property](#removing-the-underline-of-a-hyperlink-using-the-css-text-decoration-property)
+    - [Why we shouldn't use `&nbsp` for creating gaps in between elements](#why-we-shouldnt-use-nbspnon-breaking-space-nbsp-for-creating-gaps-in-between-elements)
+    - [Writing Semantic HTML](#writing-semantic-html)
+    - [Difference between `src` and `href` attribute](#difference-between-src-and-href-attribute)
+        - [Difference between *parsing* and *rendering*](#difference-between-parsing-and-rendering)
+    - [Using `<i>` and `<span>` for adding icons](#using-i-and-span-for-adding-icons)
 <!-- /TOC -->
 
 # HTML Reference
@@ -206,57 +207,7 @@ Images are not technically inserted into a web page; images are linked to web pa
 
 Checkout [these](#css-properties-for-images) CSS properties related to images.
 
-### Difference between `src` and `href` attribute
 
-There is a differentiation between src and href and they can't be used interchangeably. We use `src` for **replaced elements** (A replaced element is any element whose appearance and dimensions are defined by an external resource.) while `href` is used for establishing a relationship between the referencing document and an external resource.
-
-`href` (Hypertext Reference) attribute specifies the location of a Web resource thus defining a link or relationship between the current element (in case of anchor `<a>`) or current document (in case of `<link>`) and the destination anchor or resource defined by this attribute. When we write:
-
-```html
-<link href="style.css" rel="stylesheet" />
-```
-
-The browser understands that this resource is a `stylesheet` and the [**parsing**](#difference-between-parsing-and-rendering) (analyzing the code according to syntax rules) of the page is not paused ([**rendering**](#difference-between-parsing-and-rendering) might be paused since the browser needs the style rules to paint and render the page). It is not similar to dumping the contents of the css file inside the `<style>` tag. (Hence it is advisable to use `<link>` rather than `@import` for attaching stylesheets to your html document.)
-
-`src` (Source) attribute just embeds the resource in the current document at the location of the element's definition. For eg. When the browser finds
-
-```html
-<script src="script.js"></script>
-```
-
-The loading and processing of the page is paused until this the browser fetches, compiles and executes the file. It is similar to dumping the contents of the js file inside the `<script>` tag. 
-
-Similar is the case with `<img>` tag. It is an empty tag and the content, that should come inside it, is defined by the `src` attribute. The browser pauses the loading until it fetches and loads the image.
-
-This is the reason why it is advisable to load all JavaScript files at the bottom (before the `</body>` tag) to prevent frequent loading.
-
-#### Difference between *parsing* and *rendering*
-
-- Parsing turns arrays of pixels or sequences of letters into concepts. 
-    
-    Rendering turns concepts into arrays of pixels or sequences of letters. 
-
-- Parsing seeks to infer a symbolic representation from sensory input (typed source code).
-    
-    Rendering turns said symbolic representation into a sensory experience. 
-
-So over here, parsing is an intermediate step to rendering. Parsing a page means taking the source code (sequence of letters) and using syntactical rules to make logical sense of it. This logic is then used to display pixels on the screen (rendering).
-
-
-
-### Using `<i>` and `<span>` for adding icons
-
-`<i>` is used for icons because it is:
-
-- Short
-- **i** can mean icon (although not in HTML)
-- It adds semantic meaning to an icon element.
-
-    The alternative option to carry an icon class by itself is `<span>`, which of course has no semantic meaning whatsoever. When a machine asks the `<span>` what it contains, it says, "I don't know. Could be anything." 
-    
-    But the `<i>` tag says, "I contain a different way of saying something than the usual way, or maybe an unfamiliar term." That's not the same as "I contain an icon," but it's a lot closer to it than `<span>` got!
-
-It is an awful practice but it is a triumph of performance over semantics.
 
 ### `<div>` element
 
@@ -296,10 +247,6 @@ It is an empty element, it contains attributes only which are as follows:
 ```
 NOTE: **favicon** is a small square image that represents a website in web browsers.
 
-##  Writing Semantic HTML
-
-TODO
-
 ## Non-breaking Space `&nbsp`
 
 A commonly used entity in HTML is the non-breaking space: `&nbsp;`
@@ -309,10 +256,6 @@ A non-breaking space is a space that will not break into a new line.
 Two words separated by a non-breaking space will stick together (not bSreak into a new line). This is handy when breaking the words might be disruptive.
 
 If you write 10 spaces in your text, the browser will remove 9 of them. To add real spaces to your text, you can use the `&nbsp;` character entity.
-
-### Why we shouldn't use it
-
-However, this character shouldn't be used in webpages to create gaps because it is absolute in nature.
 
 # CSS Reference
 
@@ -645,9 +588,9 @@ SYNTAX:
 This property is useful for rounding corners of images. 
 It can also be used to display images which are actually square but with a circular border, by setting the property value to `50%`.
 
-## CSS `text-decoration` property 
+# Important Concepts
 
-### Removing the underline of a hyperlink
+## Removing the underline of a hyperlink using the CSS `text decoration` property
 
 By setting the `text-decoration` of a certain class to none, the hyperlinks of that particular class will not be underlined, as links generally are by default. 
 ```css
@@ -659,3 +602,61 @@ Be careful when removing the text decoration on anchors since users often depend
 
 This is useful for removing hyperlink underlines from nav bars, a place where it's obvious a hyperlink is present and where we want to add our own formatting to the text.
 
+
+## Why we shouldn't use [`&nbsp`](#non-breaking-space-nbsp) for creating gaps in between elements
+
+This character shouldn't be used in webpages to create gaps because it is absolute in nature, which creates problems in responsiveness as the gap between two elements will remain fixed while everything else changes.
+
+##  Writing Semantic HTML
+
+TODO
+
+## Difference between `src` and `href` attribute
+
+There is a differentiation between src and href and they can't be used interchangeably. We use `src` for **replaced elements** (A replaced element is any element whose appearance and dimensions are defined by an external resource.) while `href` is used for establishing a relationship between the referencing document and an external resource.
+
+`href` (Hypertext Reference) attribute specifies the location of a Web resource thus defining a link or relationship between the current element (in case of anchor `<a>`) or current document (in case of `<link>`) and the destination anchor or resource defined by this attribute. When we write:
+
+```html
+<link href="style.css" rel="stylesheet" />
+```
+
+The browser understands that this resource is a `stylesheet` and the [**parsing**](#difference-between-parsing-and-rendering) (analyzing the code according to syntax rules) of the page is not paused ([**rendering**](#difference-between-parsing-and-rendering) might be paused since the browser needs the style rules to paint and render the page). It is not similar to dumping the contents of the css file inside the `<style>` tag. (Hence it is advisable to use `<link>` rather than `@import` for attaching stylesheets to your html document.)
+
+`src` (Source) attribute just embeds the resource in the current document at the location of the element's definition. For eg. When the browser finds
+
+```html
+<script src="script.js"></script>
+```
+
+The loading and processing of the page is paused until this the browser fetches, compiles and executes the file. It is similar to dumping the contents of the js file inside the `<script>` tag. 
+
+Similar is the case with `<img>` tag. It is an empty tag and the content, that should come inside it, is defined by the `src` attribute. The browser pauses the loading until it fetches and loads the image.
+
+This is the reason why it is advisable to load all JavaScript files at the bottom (before the `</body>` tag) to prevent frequent loading.
+
+### Difference between *parsing* and *rendering*
+
+- Parsing turns arrays of pixels or sequences of letters into concepts. 
+    
+    Rendering turns concepts into arrays of pixels or sequences of letters. 
+
+- Parsing seeks to infer a symbolic representation from sensory input (typed source code).
+    
+    Rendering turns said symbolic representation into a sensory experience. 
+
+So over here, parsing is an intermediate step to rendering. Parsing a page means taking the source code (sequence of letters) and using syntactical rules to make logical sense of it. This logic is then used to display pixels on the screen (rendering).
+
+## Using `<i>` and `<span>` for adding icons
+
+`<i>` is used for icons because it is:
+
+- Short
+- **i** can mean icon (although not in HTML)
+- It adds semantic meaning to an icon element.
+
+    The alternative option to carry an icon class by itself is `<span>`, which of course has no semantic meaning whatsoever. When a machine asks the `<span>` what it contains, it says, "I don't know. Could be anything." 
+    
+    But the `<i>` tag says, "I contain a different way of saying something than the usual way, or maybe an unfamiliar term." That's not the same as "I contain an icon," but it's a lot closer to it than `<span>` got!
+
+It is an awful practice but it is a triumph of performance over semantics.
