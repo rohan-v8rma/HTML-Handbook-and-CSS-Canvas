@@ -428,7 +428,7 @@ We also have the option of using [Google Fonts](https://fonts.google.com/), whic
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Fascinate&display=swap');
 ```
-into our CSS file and using the name of the font as regular.
+into our CSS file and using the name of the font as regular (`Fascinate` in this case).
 
 ### Fallback fonts
 
