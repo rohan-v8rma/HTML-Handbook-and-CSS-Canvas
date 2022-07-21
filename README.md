@@ -43,6 +43,11 @@
         - [Using Google Fonts](#using-google-fonts)
         - [Fallback fonts](#fallback-fonts)
     - [Viewport](#viewport)
+    - [Units in CSS](#units-in-css)
+        - [`em` and `rem` units](#em-and-rem-units)
+            - [`em` Unit](#em-unit)
+            - [`rem` Unit](#rem-unit)
+
         - [Viewport based units](#viewport-based-units)   
             - [Viewport Height `vh`](#viewport-height-vh)
             - [Viewport Width `vw`](#viewport-width-vw)
@@ -109,7 +114,7 @@ Some HTML elements have no content (like the `<br>` element). These elements are
 ```
 
 - `<!DOCTYPE html>` : This declaration defines that the document is an HTML5 document.<br> It is an instruction to the web browser about what version of HTML the page is written in. This ensures that the web page is parsed the same way by different web browsers. 
-- `<html>` : This element is the root element of an HTML page and it defines the whole HTML document. 
+- `<html>` : This element is the **root** element of an HTML page and it defines the whole HTML document. 
 - `<head>` : This element contains **meta information** (information about information) about the HTML page.
 - `<title>` : This element specifies a title for the HTML page (which is shown in the browser's title bar or in the page's tab).
 - `<body>` : This element defines the document's body, and is a container for all the visible contents (which are displayed in a browser), such as headings, paragraphs, images, hyperlinks, tables, lists, etc.
@@ -446,6 +451,31 @@ The `font-family` CSS property, which specifies the font for an element, can hol
 
 The viewport is the user's visible area of a web page. The viewport varies with the device, and will be smaller on a mobile phone than on a computer screen.
 
+Take a look at the viewport based units of CSS [below](#viewport-based-units).
+
+## Units in CSS
+
+### `em` and `rem` units
+`rem` and `em` are scalable and relative units of size, but with `em`, the unit is relative to the font size of its parent element, while the `rem` unit is only relative to the root font size of the HTML document. 
+
+The “r” in `rem` stands for “root”. 
+
+#### `em` Unit 
+
+The `em` unit allows setting the font size of an element relative to the font size of its parent. 
+    
+When the size of the parent element changes, the size of the child changes automatically.
+
+Note: When `em` units are used on `font-size` property, the size is relative to the `font-size` of the parent. When used on other properties, it’s relative to the `font-size` of that element itself. 
+
+#### `rem` Unit 
+
+The `rem` is based upon the font-size value of the **root** element, which is the `<html>` element. 
+
+And if the `<html>` element doesn’t have a specified font-size, the browser default value of `16px` is used. 
+
+So here only the value of the root is considered, and there is no relation with a parent element (or the current element in case of other lengths).
+
 ### Viewport based units
 
 There are four viewport-based units in CSS. These are `vh`, `vw`, `vmin` and `vmax`.
@@ -466,7 +496,7 @@ This unit is based on the smaller dimension of the viewport. If the viewport hei
 
 This unit is based on the larger dimension of the viewport. If the viewport height is larger than the width, the value of 1vmax will be equal to 1% of viewport height, and vice versa.
 
-### Difference of Viewport units from percentages
+#### Difference of Viewport units from percentages
 
 Viewport units may sound similar to percentages. However, they’re very different. 
 
@@ -672,6 +702,12 @@ This character shouldn't be used in webpages to create gaps because it is absolu
 ##  Writing Semantic HTML
 
 TODO
+
+[`<header>` and `<footer>` tags](#header--footer-element)
+
+`<section>` tag
+
+[More information on Semantic HTML](https://www.w3schools.com/html/html5_semantic_elements.asp)
 
 ## Difference between `src` and `href` attribute
 
