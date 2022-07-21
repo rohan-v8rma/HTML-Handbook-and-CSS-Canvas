@@ -51,8 +51,11 @@
         - [Difference of Viewport units from percentages](#difference-of-viewport-units-from-percentages)
         - [Usage of viewport units](#usage-of-viewport-units)
     - [`width`, `margin`, `border` and `padding` of an element](#width-margin-border-and-padding-of-an-element)
+    - [CSS `box-sizing` Property](#css-box-sizing-property)
     - [CSS `display` Property](#css-display-property)
     - [CSS `transition` Property](#css-transition-property)
+    - [CSS `vertical-align` Property](#css-vertical-align-property)
+    - [CSS `text-align` Property](#css-text-align-property)
     - [Setting line spacing in HTML using CSS `line-height` property](#setting-line-spacing-in-html-using-css-line-height-property)
     - [CSS properties for flexboxes](#css-properties-for-flexboxes)
         - [flex-direction property](#flex-direction-property)
@@ -163,13 +166,13 @@ While those work well for pages, they lack flexibility to support large or compl
 
 ### Properties of children of a flex container
 
-The Flexbox layout gives the PARENT container the ability to alter its items’ width/height (and order) to best fill the available space in order to accommodate to all kind of display devices and screen sizes. 
+The Flexbox layout gives the PARENT container the ability to alter its items’ width/height (and order) to best fill the available space in order to accommodate all kinds of display devices and screen sizes. 
 
 NOTE that even if the container's children are `<span>` elements, which are by-default [`inline`](#inline-element) elements, their behaviour will be converted similar to [`block`](#block-level-element) or [`inline-block`](#inline-block) so that their width and height can be manipulated.
 
 ### Difference b/w `flex` and `flex-grow` property of children of a flex container
 
-It is generally not advisable to use `flex-grow: 1` for all children because `flex-grow` allocates the remaining space after each child takes its minimum required space. So, the behaviour can be unpredicatable in this situation.
+It is generally NOT advisable to use `flex-grow: 1` for all children because `flex-grow` allocates the remaining space after each child takes its minimum required space. So, the behaviour can be unpredicatable in this situation.
 
 `flex: 1` creates a definite ratio between the children such that the total space a child takes up is equal to that ratio. 
 
@@ -351,6 +354,9 @@ To select an element with a specific id, write a hash (#) character, followed by
     color: red;
 }
 ```
+
+These IDs are also useful when we want to modify elements using JavaScript.
+
 ### CSS class selector
 
 The class selector selects HTML elements with a specific class attribute. An element can be a part of multiple classes.
@@ -488,11 +494,39 @@ Border: Note that border doesn't have any width
 
 <!--- TODO insert illustration --->
 
-Note that `margin`, `border`,  `padding` and `width` property combined account for the overall width of an element.
+- Note that `margin`, `border`,  `padding` and `width` property combined account for the overall width of an element.
 
-It's not like `width` is relative to the parent and `margin` and `padding` is relative to the `width`. 
+    It's not like `width` is relative to the parent and `margin` and `padding` is relative to the `width`. 
 
-For example, if we keep the `width` property of a block to be 25% and `padding` property of a block to be 25%, the block will combined take up 50% of its parent.
+    For example, if we keep the `width` property of a block to be 25% and `padding` property of a block to be 25%, the block will combined take up 50% of its parent.
+
+- **Also NOTE**: Remember that if suppose `margin` is set as:
+
+    ```css
+    .body {
+        margin: 10vh 10vw;
+    }
+    ```
+
+    This means that the total vertical margin is `20vh` (`10vh` above and `10vh` below) and the total horizontal margin is `20vw` (`10vw` on the left and `10vw` on the right).
+
+## CSS `box-sizing` Property
+
+The `box-sizing` CSS property sets how the total width and height of an element is calculated.
+
+- `content-box` gives us the default CSS box-sizing behavior. 
+
+    If we set an element's width to 100 pixels, then the element's content box will be 100 pixels wide, and the width of any border or padding will be added to the final rendered width, making the element wider than 100px.
+
+    It can be thought of intuitively in the sense that only the 'content' is included in the 'box' whose size we are specifying.
+
+- `border-box` tells the browser to account for any border and padding in the values we specify for an element's width and height. 
+
+    If you set an element's width to 100 pixels, that 100 pixels will include any border or padding you added, and the content box will shrink to absorb that extra width. This typically makes it much easier to size elements.
+
+    It can be thought of intuitively in the sense that both the 'content' and the 'border' is included in the 'box' whose size we are specifying.
+    
+    
 
 ## CSS `display` Property
 
@@ -505,6 +539,16 @@ SYNTAX:
     display: display-property-value;
 }
 ```
+
+## CSS `vertical-align` property
+
+TODO
+
+## CSS `text-align` Property
+
+The `text-align` CSS property sets the horizontal alignment of the inline-level content inside a block element or table-cell box. This means it works like [vertical-align]() but in the horizontal direction.
+
+Even if we apply this property on an element containing nested elements, the text from each of the nested elements will be centered horizontally.
 
 ## CSS `transition` Property
 
