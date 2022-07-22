@@ -64,12 +64,13 @@
     - [CSS `text-align` Property](#css-text-align-property)
     - [Setting line spacing in HTML using CSS `line-height` property](#setting-line-spacing-in-html-using-css-line-height-property)
     - [CSS properties for flexboxes](#css-properties-for-flexboxes)
-        - [flex-direction property](#flex-direction-property)
-        - [justify-content property](#justify-content-property)
-        - [align-items property](#align-items-property)
-        - [flex-grow property](#flex-grow-property)
+        - [`flex-direction` property](#flex-direction-property)
+        - [`justify-content` property](#justify-content-property)
+        - [`align-items` property](#align-items-property)
+        - [`flex-grow` property](#flex-grow-property)
     - [CSS properties for images](#css-properties-for-images)
-        - [border-radius property](#border-radius-property)
+        - [`border-radius` property](#border-radius-property)
+    - [CSS properties for `<button>` elements](#css-properties-for-button-elements)
     - [CSS Media Queries](#css-media-queries)
 - [Important Concepts](#important-concepts)
     - [Removing the underline of a hyperlink using the CSS `text decoration` property](#removing-the-underline-of-a-hyperlink-using-the-css-text-decoration-property)
@@ -712,6 +713,10 @@ SYNTAX:
 
 This property is useful for rounding corners of images. 
 It can also be used to display images which are actually square but with a circular border, by setting the property value to `50%`.
+
+## CSS Properties for `<button>` elements 
+
+It is advisable to keep the font size and the dimensions of the buttons in relative units like `rem`.
 
 ## CSS Media Queries
 
