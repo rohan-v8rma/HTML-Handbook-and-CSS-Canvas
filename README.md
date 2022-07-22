@@ -38,6 +38,8 @@
         - [CSS `:link` selector](#css-link-selector)
         - [CSS `:visited` selector](#css-visited-selector)       
         - [CSS `:active` selector](#css-active-selector)
+        - [CSS `:hover` selector](#css-hover-selector)
+        - [CSS universal selector](#css-universal-selector)
     - [Adding a font in CSS](#adding-a-font-in-css)
         - [Using locally downloaded fonts](#using-locally-downloaded-fonts)
         - [Using Google Fonts](#using-google-fonts)
@@ -47,7 +49,6 @@
         - [`em` and `rem` units](#em-and-rem-units)
             - [`em` Unit](#em-unit)
             - [`rem` Unit](#rem-unit)
-
         - [Viewport based units](#viewport-based-units)   
             - [Viewport Height `vh`](#viewport-height-vh)
             - [Viewport Width `vw`](#viewport-width-vw)
@@ -69,8 +70,7 @@
         - [flex-grow property](#flex-grow-property)
     - [CSS properties for images](#css-properties-for-images)
         - [border-radius property](#border-radius-property)
-    - [CSS text-decoration property](#css-text-decoration-property)
-        - [Removing the underline of a hyperlink](#removing-the-underline-of-a-hyperlink)
+    - [CSS Media Queries](#css-media-queries)
 - [Important Concepts](#important-concepts)
     - [Removing the underline of a hyperlink using the CSS `text decoration` property](#removing-the-underline-of-a-hyperlink-using-the-css-text-decoration-property)
     - [Why we shouldn't use `&nbsp` for creating gaps in between elements](#why-we-shouldnt-use-nbspnon-breaking-space-nbsp-for-creating-gaps-in-between-elements)
@@ -396,6 +396,39 @@ Although it used on links usually, it can be used to select other elements as we
 
 Note: `:hover` MUST come after [`:link`](#css-link-selector) and [`:visited`](#css-visited-selector) (if they are present) in the CSS definition, in order to be effective!
 
+### CSS universal selector
+
+An asterisk ( i.e. `"*"` ) is used to denote a CSS universal selector. An asterisk can also be followed by a selector. 
+
+This is useful when you want to set a style for of all the elements of an HTML page or for all of the elements within an element of an HTML page. 
+
+## CSS At-rules
+
+**At-rules** are CSS statements that instruct CSS how to behave. They begin with an at sign, `@` , followed by an identifier and includes everything up to the next semicolon, `;`, or the next CSS block, whichever comes first.
+
+Syntax:
+```css
+/* General structure */
+@IDENTIFIER (RULE);
+
+/* Nested Statements */
+@IDENTIFIER (RULE) {
+
+}
+```
+
+There are several regular at-rules, designated by their identifiers, each with a different syntax:
+
+- `@charset` - Defines the character set used by the style sheet.
+- `@import` - Tells the CSS engine to include an external style sheet.
+- `@font-face` - Describes the aspect of an external font to be downloaded.
+- `@media` - Used to apply part of a style sheet based on the result of one or more media queries. 
+
+    With it, we specify a media query and a block of CSS to apply to the document if and only if the media query matches the device on which the content is being used.
+- `@supports` - Allows specifying declarations that depend on a browser's support for one or more specific CSS features. This is called a **feature query**.
+- `@namespace` - Tells the CSS engine that all its content must be considered prefixed with an XML namespace.
+
+
 ## Adding a font in CSS
 
 ### Using locally downloaded fonts
@@ -679,6 +712,95 @@ SYNTAX:
 
 This property is useful for rounding corners of images. 
 It can also be used to display images which are actually square but with a circular border, by setting the property value to `50%`.
+
+## CSS Media Queries
+
+Media queries are useful when you want to modify your site or app depending on a device's general type (such as `print` vs. `screen`) or specific characteristics and parameters (such as screen resolution or browser viewport width).
+
+Syntax:
+```css
+/* General Syntax */
+@media not|only mediatype and (expressions) {
+  CSS-Code;
+}
+/* Example */
+@media only screen and (min-width: 900px) {
+  body {
+    margin: 10vh 20vw;
+  }
+}
+```
+
+### Breakpoints
+
+CSS breakpoints are points where the website content responds according to the device width, allowing you to show the best possible layout to the user. 
+
+CSS breakpoints are also called media query breakpoints, as they are used with media query.
+
+### Media types
+
+Media types describe the general category of a device. 
+
+Except when using the `not` or `only` logical operators, the media type is optional and the `all` type is implied.
+
+- `all` : Suitable for all devices.
+
+- `print` : Intended for paged material and documents viewed on a screen in print preview mode. 
+
+- `screen` : Intended primarily for screens.
+
+It is also possible to have different stylesheets for different medias, for example:
+```html
+<link rel="stylesheet" media="mediatype and|not|only (expressions)" href="print.css">
+```
+
+### Media features
+
+Media features describe specific characteristics of the **user agent** (a computer program representing a person, for example, a browser in a Web context), output device, or environment. 
+
+Media feature expressions test for their presence or value, and are entirely optional. Each media feature expression must be surrounded by parentheses.
+
+Some examples of media features are: 
+
+- `max-width`: The maximum width of the device in question for which the media query will be evaluated to true.
+
+- `min-width`: The minimum width of the device in question for which the media query will be evaluated to true.
+
+Take a look at [MDN docs](https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features) for all media features, both deprecated and non-deprecated.
+
+### Logical operators used in Media Queries
+
+The logical operators `not`, `and`, and `only` can be used to compose a complex media query. We can also combine multiple media queries into a single rule by separating them with commas `,`.
+
+#### `and` 
+
+Used for combining multiple media features together into a single media query, requiring each chained feature to return true for the query to be true. 
+
+It is also used for joining media features with media types.
+
+#### `not` 
+
+Used to negate a media query, returning true if the query would otherwise return false. 
+
+If you use the `not` operator, you must also specify a media type.
+
+In Media Queries level 3, the not keyword can't be used to negate an individual media feature expression, only an entire media query.
+
+#### `only`
+
+Applies a style only if an entire query matches. 
+
+It is useful for preventing older browsers from applying selected styles. When not using `only`, older browsers would interpret the query `screen and (max-width: 500px)` as `screen`, ignoring the remainder of the query, and applying its styles on all `screens`. 
+    
+If you use the `only` operator, you must also specify a media type.
+
+### `,` (comma)
+
+Commas are used to combine multiple media queries into a single rule. Each query in a comma-separated list is treated separately from the others. 
+
+Thus, if any of the queries in a list is true, the entire media statement returns true. 
+    
+In other words, lists behave like a logical `or` operator.
 
 # Important Concepts
 
