@@ -80,6 +80,7 @@
         - [Difference between *parsing* and *rendering*](#difference-between-parsing-and-rendering)
     - [Using `<i>` and `<span>` for adding icons](#using-i-and-span-for-adding-icons)
     - [Why do browsers display HTML documents with some minimal amount of padding/margin?](#why-do-browsers-display-html-documents-with-some-minimal-amount-of-paddingmargin)
+    - [CSS `background` vs `background-color` property](#css-background-vs-background-color-property)
 <!-- /TOC -->
 
 # HTML Reference
@@ -821,7 +822,6 @@ Be careful when removing the text decoration on anchors since users often depend
 
 This is useful for removing hyperlink underlines from nav bars, a place where it's obvious a hyperlink is present and where we want to add our own formatting to the text.
 
-
 ## Why we shouldn't use [`&nbsp`](#non-breaking-space-nbsp) for creating gaps in between elements
 
 This character shouldn't be used in webpages to create gaps because it is absolute in nature, which creates problems in responsiveness as the gap between two elements will remain fixed while everything else changes.
@@ -897,3 +897,17 @@ So, with that in mind, Anyone should be able to write an HTML document WITHOUT a
 These defaults cover the margin and padding on the body, some fonts, the most legible font size, etc. And they leave it up to you to overwrite as needed with CSS.
 
 Without the margin and padding on the body, everything would be completely flushed to the browser window. That is not the best practice if you were reading a document.
+
+## CSS `background` vs `background-color` property 
+
+The `background-color` property is only for change the color of the background whereas `background` can be used for specifying numerous characteristics for the background. 
+
+For example:
+```css
+.class-1{
+    background-color: yellow;
+}
+.class-2{
+    background: red url(“image_cat.png”) no-repeat right top;
+}
+```
