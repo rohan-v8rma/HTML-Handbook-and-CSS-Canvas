@@ -1,88 +1,97 @@
 # INDEX
-<!-- TOC -->
 
 - [INDEX](#index)
 - [HTML Reference](#html-reference)
-    - [What is an HTML Element?](#what-is-an-html-element)
-    - [Template of an HTML document](#template-of-an-html-document)
-    - [What are HTML Attributes?](#what-are-html-attributes)
-    - [What is the Role of a Web Browser in this process?](#what-is-the-role-of-a-web-browser-in-this-process)
-    - [HTML Inline, Block & Flex elements](#html-inline-block--flex-elements)
-        - [Block-level element](#block-level-element)
-        - [Inline element](#inline-element)
-        - [Inline-block](#inline-block)
-            - [Features display: inline-block has over display: inline](#features-display-inline-block-has-over-display-inline)
-            - [Features display: inline-block has over display: block](#features-display-inline-block-has-over-display-block)
-        - [Flexbox](#flexbox)
-            - [Properties of children of a flex container](#properties-of-children-of-a-flex-container)
-            - [Difference b/w `flex` and `flex-grow` property of children of a flex container]()
-    - [HTML elements](#html-elements)
-        - [`<a>` element Hyperlink tag](#a-element-hyperlink-tag)
-        - [`<img>` element](#img-element)
-        - [`<div>` element](#div-element)
-        - [`<header>` & `<footer>` element](#header--footer-element)
-        - [`<link>` element](#link-element)
-            - [Adding an external CSS stylesheet](#adding-an-external-css-stylesheet)
-            - [Adding a favicon](#adding-a-favicon)
-    - [Non-breaking Space `&nbsp`](#non-breaking-space-nbsp)
+  - [What is an HTML Element?](#what-is-an-html-element)
+  - [Template of an HTML document](#template-of-an-html-document)
+  - [What are HTML Attributes?](#what-are-html-attributes)
+  - [What is the Role of a Web Browser in this process?](#what-is-the-role-of-a-web-browser-in-this-process)
+  - [HTML Inline, Block & Flex elements](#html-inline-block--flex-elements)
+    - [Block-level element](#block-level-element)
+    - [Inline element](#inline-element)
+    - [Inline-block](#inline-block)
+      - [Features `display: inline-block` has over `display: inline`](#features-display-inline-block-has-over-display-inline)
+      - [Features `display: inline-block` has over `display: block`](#features-display-inline-block-has-over-display-block)
+    - [Flexbox](#flexbox)
+    - [Properties of children of a flex container](#properties-of-children-of-a-flex-container)
+    - [Difference b/w `flex` and `flex-grow` property of children of a flex container](#difference-bw-flex-and-flex-grow-property-of-children-of-a-flex-container)
+  - [HTML elements](#html-elements)
+    - [`<a>` element (Hyperlink tag)](#a-element-hyperlink-tag)
+    - [`<img>` element](#img-element)
+    - [`<div>` element](#div-element)
+    - [`<header>` & `<footer>` element](#header--footer-element)
+    - [`<link>` element](#link-element)
+      - [Adding an external CSS stylesheet](#adding-an-external-css-stylesheet)
+      - [Adding a favicon](#adding-a-favicon)
+  - [Non-breaking Space `&nbsp`](#non-breaking-space-nbsp)
 - [CSS Reference](#css-reference)
-    - [What is CSS?](#what-is-css)
-    - [Using CSS](#using-css)
-    - [Text Wrapping in CSS](#text-wrapping-in-css)
-        - [What is Text Wrapping?](#what-is-text-wrapping)
-    - [CSS Selectors](#css-selectors)
-        - [CSS element Selector](#css-element-selector)
-        - [CSS ID Selector](#css-id-selector)
-        - [CSS class selector](#css-class-selector)
-        - [CSS `:hover` selector](#css-hover-selector)
-        - [CSS `:link` selector](#css-link-selector)
-        - [CSS `:visited` selector](#css-visited-selector)       
-        - [CSS `:active` selector](#css-active-selector)
-        - [CSS `:hover` selector](#css-hover-selector)
-        - [CSS universal selector](#css-universal-selector)
-    - [Adding a font in CSS](#adding-a-font-in-css)
-        - [Using locally downloaded fonts](#using-locally-downloaded-fonts)
-        - [Using Google Fonts](#using-google-fonts)
-        - [Fallback fonts](#fallback-fonts)
-    - [Viewport](#viewport)
-    - [Units in CSS](#units-in-css)
-        - [`em` and `rem` units](#em-and-rem-units)
-            - [`em` Unit](#em-unit)
-            - [`rem` Unit](#rem-unit)
-        - [Viewport based units](#viewport-based-units)   
-            - [Viewport Height `vh`](#viewport-height-vh)
-            - [Viewport Width `vw`](#viewport-width-vw)
-            - [Viewport Minimum `vmin`](#viewport-minimum-vmin)
-            - [Viewport Maximum `vmax`](#viewport-maximum-vmax)
-        - [Difference of Viewport units from percentages](#difference-of-viewport-units-from-percentages)
-        - [Usage of viewport units](#usage-of-viewport-units)
-    - [`width`, `margin`, `border` and `padding` of an element](#width-margin-border-and-padding-of-an-element)
-    - [CSS `box-sizing` Property](#css-box-sizing-property)
-    - [CSS `display` Property](#css-display-property)
-    - [CSS `transition` Property](#css-transition-property)
-    - [CSS `vertical-align` Property](#css-vertical-align-property)
-    - [CSS `text-align` Property](#css-text-align-property)
-    - [Setting line spacing in HTML using CSS `line-height` property](#setting-line-spacing-in-html-using-css-line-height-property)
-    - [CSS properties for flexboxes](#css-properties-for-flexboxes)
-        - [`flex-direction` property](#flex-direction-property)
-        - [`justify-content` property](#justify-content-property)
-        - [`align-items` property](#align-items-property)
-        - [`flex-grow` property](#flex-grow-property)
-    - [CSS properties for images](#css-properties-for-images)
-        - [`border-radius` property](#border-radius-property)
-    - [CSS properties for `<button>` elements](#css-properties-for-button-elements)
-    - [CSS Media Queries](#css-media-queries)
+  - [What is CSS?](#what-is-css)
+  - [Using CSS](#using-css)
+  - [Text Wrapping in CSS](#text-wrapping-in-css)
+    - [What is Text Wrapping?](#what-is-text-wrapping)
+  - [CSS Selectors](#css-selectors)
+    - [CSS element Selector](#css-element-selector)
+    - [CSS ID Selector](#css-id-selector)
+    - [CSS class selector](#css-class-selector)
+    - [CSS `:link` selector](#css-link-selector)
+    - [CSS `:visited` selector](#css-visited-selector)
+    - [CSS `:active` selector](#css-active-selector)
+    - [CSS `:hover` selector](#css-hover-selector)
+    - [CSS universal selector](#css-universal-selector)
+  - [CSS Pseudo-classes](#css-pseudo-classes)
+    - [`:hover`](#hover)
+    - [`:active`](#active)
+    - [Anchor element (`<a>`) pseudo-classes](#anchor-element-a-pseudo-classes)
+  - [CSS At-rules](#css-at-rules)
+  - [Adding a font in CSS](#adding-a-font-in-css)
+    - [Using locally downloaded fonts](#using-locally-downloaded-fonts)
+    - [Using Google Fonts](#using-google-fonts)
+    - [Fallback fonts](#fallback-fonts)
+  - [Viewport](#viewport)
+  - [Units in CSS](#units-in-css)
+    - [`em` and `rem` units](#em-and-rem-units)
+      - [`em` Unit](#em-unit)
+      - [`rem` Unit](#rem-unit)
+    - [Viewport based units](#viewport-based-units)
+      - [Viewport Height `vh`](#viewport-height-vh)
+      - [Viewport Width `vw`](#viewport-width-vw)
+      - [Viewport Minimum `vmin`](#viewport-minimum-vmin)
+      - [Viewport Maximum `vmax`](#viewport-maximum-vmax)
+      - [Difference of Viewport units from percentages](#difference-of-viewport-units-from-percentages)
+    - [Usage of viewport units](#usage-of-viewport-units)
+  - [`width`, `margin`, `border` and `padding` of an element](#width-margin-border-and-padding-of-an-element)
+  - [CSS `box-sizing` Property](#css-box-sizing-property)
+  - [CSS `display` Property](#css-display-property)
+  - [CSS `vertical-align` property](#css-vertical-align-property)
+  - [CSS `text-align` Property](#css-text-align-property)
+  - [CSS `transition` Property](#css-transition-property)
+  - [Setting line spacing in HTML using CSS `line-height` property](#setting-line-spacing-in-html-using-css-line-height-property)
+  - [CSS properties for flexboxes](#css-properties-for-flexboxes)
+    - [`flex-direction` property](#flex-direction-property)
+    - [`justify-content` property](#justify-content-property)
+    - [`align-items` property](#align-items-property)
+    - [`flex-grow` property](#flex-grow-property)
+  - [CSS properties for images](#css-properties-for-images)
+    - [`border-radius` property](#border-radius-property)
+  - [CSS Properties for `<button>` elements](#css-properties-for-button-elements)
+  - [CSS Media Queries](#css-media-queries)
+    - [Breakpoints](#breakpoints)
+    - [Media types](#media-types)
+    - [Media features](#media-features)
+    - [Logical operators used in Media Queries](#logical-operators-used-in-media-queries)
+      - [`and`](#and)
+      - [`not`](#not)
+      - [`only`](#only)
+    - [`,` (comma)](#-comma)
 - [Important Concepts](#important-concepts)
-    - [Removing the underline of a hyperlink using the CSS `text decoration` property](#removing-the-underline-of-a-hyperlink-using-the-css-text-decoration-property)
-    - [Why we shouldn't use `&nbsp` for creating gaps in between elements](#why-we-shouldnt-use-nbspnon-breaking-space-nbsp-for-creating-gaps-in-between-elements)
-    - [Writing Semantic HTML](#writing-semantic-html)
-    - [Difference between `src` and `href` attribute](#difference-between-src-and-href-attribute)
-        - [Difference between *parsing* and *rendering*](#difference-between-parsing-and-rendering)
-    - [Using `<i>` and `<span>` for adding icons](#using-i-and-span-for-adding-icons)
-    - [Why do browsers display HTML documents with some minimal amount of padding/margin?](#why-do-browsers-display-html-documents-with-some-minimal-amount-of-paddingmargin)
-    - [CSS `background` vs `background-color` property](#css-background-vs-background-color-property)
-<!-- /TOC -->
-
+  - [Removing the underline of a hyperlink using the CSS `text decoration` property](#removing-the-underline-of-a-hyperlink-using-the-css-text-decoration-property)
+  - [Why we shouldn't use `&nbsp` for creating gaps in between elements](#why-we-shouldnt-use-nbsp-for-creating-gaps-in-between-elements)
+  - [Writing Semantic HTML](#writing-semantic-html)
+  - [Difference between `src` and `href` attribute](#difference-between-src-and-href-attribute)
+    - [Difference between *parsing* and *rendering*](#difference-between-parsing-and-rendering)
+  - [Using `<i>` and `<span>` for adding icons](#using-i-and-span-for-adding-icons)
+  - [Why do browsers display HTML documents with some minimal amount of padding/margin?](#why-do-browsers-display-html-documents-with-some-minimal-amount-of-paddingmargin)
+  - [CSS `background` vs `background-color` property](#css-background-vs-background-color-property)
 # HTML Reference
 
 ## What is an HTML Element?
@@ -283,6 +292,10 @@ So, if we set the color of the body text to "blue", all headings, paragraphs, an
 
 CSS can be added to HTML documents in 3 ways:
 
+Priority is given in the order:
+
+Inline styling >> Internal styling >> External styling
+
 - **Inline** - Inline CSS uses the `style` attribute of an HTML element. This applies a unique style to a single HTML element.
 ```html
 ...
@@ -403,6 +416,74 @@ Note: `:hover` MUST come after [`:link`](#css-link-selector) and [`:visited`](#c
 An asterisk ( i.e. `"*"` ) is used to denote a CSS universal selector. An asterisk can also be followed by a selector. 
 
 This is useful when you want to set a style for of all the elements of an HTML page or for all of the elements within an element of an HTML page. 
+
+## CSS Pseudo-classes
+
+A pseudo-class is used to define a special state of an element. It is a type of selector
+
+For example, it can be used to:
+
+- Style an element when a user mouses over it
+- Style visited and unvisited links differently
+- Style an element when it gets focus
+
+The general syntax for using a pseudo-class is:
+```css
+selector:pseudo-class {
+  property: value;
+}
+```
+
+Some examples of pseudo-classes are:
+### `:hover`
+
+The `:hover` pseudo-class is used to select elements when you mouse over them.
+
+Note that `:hover` can be used on all elements, not only on links.
+
+Also, `:hover` MUST come after `:link` and `:visited` (if they are present) in the CSS definition, in order to be effective!
+
+### `:active` 
+
+The `:active` pseudo-class is used to select and style the active link.
+
+A link becomes active when you click on it.
+
+Note that `:active` can be used on all elements, not only links.
+
+Also, `:active` MUST come after `:hover` (if present) in the CSS definition in order to be effective!
+
+### Anchor element (`<a>`) pseudo-classes
+
+Links can be displayed in different ways:
+
+```css
+/* unvisited link */
+a:link {
+  color: #FF0000;
+}
+
+/* visited link */
+a:visited {
+  color: #00FF00;
+}
+
+/* mouse over link */
+a:hover {
+  color: #FF00FF;
+}
+
+/* selected link */
+a:active {
+  color: #0000FF;
+}
+```
+
+We use the `:link` selector to style links to unvisited pages, the `:visited` selector to style links to visited pages, and the `:active` selector to style the active link.
+
+Note: `a:hover` MUST come after `a:link` and `a:visited` in the CSS definition in order to be effective! `a:active` MUST come after `a:hover` in the CSS definition in order to be effective! 
+
+Pseudo-class names are not case-sensitive.
 
 ## CSS At-rules
 
