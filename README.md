@@ -33,15 +33,14 @@
     - [CSS element Selector](#css-element-selector)
     - [CSS ID Selector](#css-id-selector)
     - [CSS class selector](#css-class-selector)
-    - [CSS `:link` selector](#css-link-selector)
-    - [CSS `:visited` selector](#css-visited-selector)
-    - [CSS `:active` selector](#css-active-selector)
-    - [CSS `:hover` selector](#css-hover-selector)
     - [CSS universal selector](#css-universal-selector)
   - [CSS Pseudo-classes](#css-pseudo-classes)
+    - [`:link`](#link)
+    - [`:visited`](#visited)
     - [`:hover`](#hover)
     - [`:active`](#active)
     - [Anchor element (`<a>`) pseudo-classes](#anchor-element-a-pseudo-classes)
+    - [Using the `:hover`/any pseudo class to modify individual child elements of the parent](#using-the-hoverany-pseudo-class-to-modify-individual-child-elements-of-the-parent)
   - [CSS At-rules](#css-at-rules)
   - [Adding a font in CSS](#adding-a-font-in-css)
     - [Using locally downloaded fonts](#using-locally-downloaded-fonts)
@@ -92,6 +91,7 @@
   - [Using `<i>` and `<span>` for adding icons](#using-i-and-span-for-adding-icons)
   - [Why do browsers display HTML documents with some minimal amount of padding/margin?](#why-do-browsers-display-html-documents-with-some-minimal-amount-of-paddingmargin)
   - [CSS `background` vs `background-color` property](#css-background-vs-background-color-property)
+  
 # HTML Reference
 
 ## What is an HTML Element?
@@ -391,26 +391,6 @@ To select elements with a specific class, write a period `(.)` character, follow
 }
 ```
 
-### CSS `:link` selector
-
-We can use the `:link` selector to style links to unvisited pages.
-
-### CSS `:visited` selector
-
-We can use the `:visited` selector to style links to visited pages.
-
-### CSS `:active` selector
-
-We can use the `:active` selector to style the active link.
-
-### CSS `:hover` selector
-
-The `:hover` selector is used to select elements when you mouse over them. 
-
-Although it used on links usually, it can be used to select other elements as well.
-
-Note: `:hover` MUST come after [`:link`](#css-link-selector) and [`:visited`](#css-visited-selector) (if they are present) in the CSS definition, in order to be effective!
-
 ### CSS universal selector
 
 An asterisk ( i.e. `"*"` ) is used to denote a CSS universal selector. An asterisk can also be followed by a selector. 
@@ -435,6 +415,15 @@ selector:pseudo-class {
 ```
 
 Some examples of pseudo-classes are:
+
+### `:link`
+
+We can use the `:link` selector to style links to unvisited pages.
+
+### `:visited`
+
+We can use the `:visited` selector to style links to visited pages.
+
 ### `:hover`
 
 The `:hover` pseudo-class is used to select elements when you mouse over them.
@@ -484,6 +473,16 @@ We use the `:link` selector to style links to unvisited pages, the `:visited` se
 Note: `a:hover` MUST come after `a:link` and `a:visited` in the CSS definition in order to be effective! `a:active` MUST come after `a:hover` in the CSS definition in order to be effective! 
 
 Pseudo-class names are not case-sensitive.
+
+### Using the `:hover`/any pseudo class to modify individual child elements of the parent
+
+This helps us to change properties of different children of a parent element differently upon a certain action like `:hover`.
+```css
+.parent-element:hover child-element { 
+    /* Changing the properties of a child element upon hovering on a parent div. */
+    display: block;
+}
+```
 
 ## CSS At-rules
 
