@@ -91,6 +91,10 @@
   - [Using `<i>` and `<span>` for adding icons](#using-i-and-span-for-adding-icons)
   - [Why do browsers display HTML documents with some minimal amount of padding/margin?](#why-do-browsers-display-html-documents-with-some-minimal-amount-of-paddingmargin)
   - [CSS `background` vs `background-color` property](#css-background-vs-background-color-property)
+  - [How font-awesome icons work](#how-font-awesome-icons-work)
+  - [Specificity Hierarchy in CSS](#specificity-hierarchy-in-css)
+    - [Using two stylesheets](#using-two-stylesheets)
+  - [Attributes of text inside `<button>` tags (Applicable for font-awesome icons as well)](#attributes-of-text-inside-button-tags-applicable-for-font-awesome-icons-as-well)
   
 # HTML Reference
 
@@ -991,3 +995,93 @@ For example:
     background: red url(“image_cat.png”) no-repeat right top;
 }
 ```
+
+## How font-awesome icons work
+<!-- TODO: complete -->
+
+A content delivery network is used to obtain font-awesome icons. The syntax is the same as importing a CSS stylesheet.
+
+```html
+<link rel="stylesheet" href="css/styles.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+```
+
+
+## Specificity Hierarchy in CSS
+<!-- TODO: complete -->
+
+
+### Using two stylesheets
+
+Considering a case where we have two local stylesheets, `style1.css` and `style2.css`, linked one after the other
+
+```html
+<head>
+...
+  <link rel="stylesheet" href="css/style1.css">
+  <link rel="stylesheet" href="css/style2.css">
+  ...
+</head>
+```
+
+`style1.css`:
+
+```css
+.green {
+  color: green;
+}
+```
+
+`style2.css`:
+
+```css
+.brown {
+  color: brown;
+}
+```
+
+Now, if suppose the body looks something like this:
+
+```html
+<body>
+  <span class="green brown">Green or Brown?</span>
+  <span class="brown green">Green or Brown?</span>
+</body>
+
+```
+The order in which the classes are written does **NOT** matter, so both the `<span>` elements will be the same color. What will matter, will be which stylesheet was linked later in the html code. 
+
+As we can see, `style2.css` (which contains `.brown` class) was linked later so the text will be brown.
+
+## Attributes of text inside `<button>` tags (Applicable for font-awesome icons as well)
+
+We known that in general, if no there are no EXPLICITLY specified values for a particular property for a particular child element, the EXPLICITLY specified values of THAT particular property for its parent element are applicable on the child as well.
+
+But, in the case child `<button>` elements, this is NOT the case atleast for font properties.
+
+Consider the following html and css code:
+```html
+<body>
+    <div class="special-font">
+        <span>HELOOOOOOOO</span>
+        <button><span>HELOOOOOOOO</span></button>
+    </div>
+    <script src="./script.js"></script>
+</body>
+```
+
+```css
+.special-font { 
+    color: green;
+    font-family: "Serif";
+    font-size: xxx-large;
+}
+```
+
+The expected behaviour would be for both the fonts to be the same. But, the actual behaviour is as follows:
+
+![](README-images/button-text-attributes.png)
+
+So, in order to change the font properties of text inside buttons, we need to use 
+`button` css selector, or assign a class or ID to the `button` element or the `span` elements inside.
