@@ -34,6 +34,7 @@
     - [CSS ID Selector](#css-id-selector)
     - [CSS class selector](#css-class-selector)
     - [CSS universal selector](#css-universal-selector)
+  - [CSS Pseudo classes & elements *(can't be accessed using DOM)*](#css-pseudo-classes--elements-cant-be-accessed-using-dom)
   - [CSS Pseudo-classes](#css-pseudo-classes)
     - [`:link`](#link)
     - [`:visited`](#visited)
@@ -41,6 +42,11 @@
     - [`:active`](#active)
     - [Anchor element (`<a>`) pseudo-classes](#anchor-element-a-pseudo-classes)
     - [Using the `:hover`/any pseudo class to modify individual child elements of the parent](#using-the-hoverany-pseudo-class-to-modify-individual-child-elements-of-the-parent)
+  - [CSS Combinators](#css-combinators)
+    - [CSS Descendant Combinator (`space`)](#css-descendant-combinator-space)
+    - [CSS Child Combinator (`>`)](#css-child-combinator-)
+    - [CSS General Sibling Combinator (`~`) (TODO)](#css-general-sibling-combinator--todo)
+    - [CSS Adjacent Sibling Combinator (`+`) (TODO)](#css-adjacent-sibling-combinator--todo)
   - [CSS At-rules](#css-at-rules)
   - [Adding a font in CSS](#adding-a-font-in-css)
     - [Using locally downloaded fonts](#using-locally-downloaded-fonts)
@@ -91,9 +97,11 @@
   - [Using `<i>` and `<span>` for adding icons](#using-i-and-span-for-adding-icons)
   - [Why do browsers display HTML documents with some minimal amount of padding/margin?](#why-do-browsers-display-html-documents-with-some-minimal-amount-of-paddingmargin)
   - [CSS `background` vs `background-color` property](#css-background-vs-background-color-property)
+  - [Difference b/w `display: none` and `visibility: hidden`](#difference-bw-display-none-and-visibility-hidden)
   - [How font-awesome icons work](#how-font-awesome-icons-work)
   - [Specificity Hierarchy in CSS](#specificity-hierarchy-in-css)
-    - [Using two stylesheets](#using-two-stylesheets)
+    - [**Applying styles using Javascript DOM Manipulation**](#applying-styles-using-javascript-dom-manipulation)
+    - [**Using two stylesheets**](#using-two-stylesheets)
   - [Attributes of text inside `<button>` tags (Applicable for font-awesome icons as well)](#attributes-of-text-inside-button-tags-applicable-for-font-awesome-icons-as-well)
   
 # HTML Reference
@@ -353,6 +361,7 @@ The most common way to add CSS, is to keep the styles in external CSS files.
 
 Order of precedence for CSS:
 ID > CLASS > ELEMENT
+
 ### CSS element Selector 
 
 The element selector selects HTML elements based on the element name. <br>
@@ -401,15 +410,39 @@ An asterisk ( i.e. `"*"` ) is used to denote a CSS universal selector. An asteri
 
 This is useful when you want to set a style for of all the elements of an HTML page or for all of the elements within an element of an HTML page. 
 
+---
+
+## CSS Pseudo classes & elements *(can't be accessed using DOM)*
+
+CSS introduces the concepts of pseudo-elements and pseudo-classes to permit formatting based on information that lies outside the DOM tree.
+
+> **NOTE:** Since, these are NOT represented in the DOM tree, these can't be accessed by javascript commands like `document.querySelector()`.
+
+- **Pseudo-elements** create abstractions about the document tree beyond those specified by the DOM language. 
+  
+  For instance, DOM languages do not offer mechanisms to access the first letter or first line of an element's content. 
+  
+  CSS **pseudo-elements** allow style sheet designers to refer to this otherwise inaccessible information. 
+  
+  **Pseudo-elements** may also provide style sheet designers a way to assign style to content that does not exist in the source document (e.g., the `:before` and `:after` **pseudo-elements** give access to generated content).
+
+- **Pseudo-classes** classify elements on characteristics other than their name, attributes or content; in principle characteristics that cannot be deduced from the DOM tree. 
+
+  **Pseudo-classes** may be dynamic, in the sense that an element may acquire or lose a pseudo-class while a user interacts with the DOM. 
+  
+  > **NOTE:** The exceptions are `:first-child`, which can be deduced from the DOM tree, and `:lang()`, which can be deduced from the DOM tree in some cases.
+
+  So basically, a pseudo-class is something you can attach a style to, but you never print it out yourself in the HTML. 
+  
+  Also, a pseudo-class can be ACQUIRED and LOST depending on user interaction with the UI, which can be:    
+  
+  - A user mousing over an element.
+  - Maintaining information about visited and unvisited linked.
+  - A user having **focus** on a particular element.
+
+---
+
 ## CSS Pseudo-classes
-
-A pseudo-class is used to define a special state of an element. It is a type of selector
-
-For example, it can be used to:
-
-- Style an element when a user mouses over it
-- Style visited and unvisited links differently
-- Style an element when it gets focus
 
 The general syntax for using a pseudo-class is:
 ```css
@@ -487,6 +520,51 @@ This helps us to change properties of different children of a parent element dif
     display: block;
 }
 ```
+
+---
+
+## CSS Combinators
+
+A [CSS selector](#css-selectors) can contain more than one simple selector. 
+
+Between the simple selectors, we can add a relationship, and that‘s called a combinator.
+
+There are four different combinators in CSS:
+
+- Descendant combinator (`space`)
+- Child combinator (`>`)
+- General sibling combinator (`~`)
+- Adjacent sibling combinator (`+`)
+
+### CSS Descendant Combinator (`space`)
+
+The descendant combinator  matches those elements matched by the *second selector* that are descendants (DIRECT or INDIRECT) of elements matched by the *first selector*. 
+
+The following CSS example selects all `<p>` elements inside `<div>` elements, (whether the `<p>` elements are directly in the body of the `<div>` element or nested in some other element inside the `<div>`) :
+
+```css
+div p {
+  background-color: yellow;
+}
+```
+
+### CSS Child Combinator (`>`)
+
+The child selector matches only those elements matched by the second selector that are the DIRECT children of elements matched by the first.
+
+The following example selects all `<p>` elements that are children of a `<div>` element, (only those `<p>` elements that directly in the body of the `<div>` element):
+
+```css
+div > p {
+  background-color: yellow;
+}
+```
+
+### CSS General Sibling Combinator (`~`) (TODO)
+
+### CSS Adjacent Sibling Combinator (`+`) (TODO)
+
+---
 
 ## CSS At-rules
 
@@ -996,6 +1074,16 @@ For example:
 }
 ```
 
+## Difference b/w `display: none` and `visibility: hidden`
+
+We can hide an element in CSS using the CSS properties, `display: none` and `visibility: hidden`.
+
+But, they are slightly different in how they work.
+
+- `display:none` removes the element from the document. It does not take up any space.
+
+- `visibility:hidden` hides the element, but it still takes up space in the layout, preserving the positions of other non-hidden elements. 
+
 ## How font-awesome icons work
 <!-- TODO: complete -->
 
@@ -1007,12 +1095,25 @@ A content delivery network is used to obtain font-awesome icons. The syntax is t
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 ```
 
+---
 
 ## Specificity Hierarchy in CSS
-<!-- TODO: complete -->
 
+If there are two or more CSS rules that point to the same element, the selector with the highest specificity value will "win", and its style declaration will be applied to that HTML element.
 
-### Using two stylesheets
+Think of specificity as a score/rank that determines which style declaration is ultimately applied to an element.
+
+### **Applying styles using Javascript DOM Manipulation**
+
+Note that if we apply styles using javascript DOM like this:
+
+```javascript
+document.querySelector("div > p").style.color = "red";
+```
+
+These styles will take precedence over any other styles.
+
+### **Using two stylesheets**
 
 Considering a case where we have two local stylesheets, `style1.css` and `style2.css`, linked one after the other
 
@@ -1053,6 +1154,8 @@ Now, if suppose the body looks something like this:
 The order in which the classes are written does **NOT** matter, so both the `<span>` elements will be the same color. What will matter, will be which stylesheet was linked later in the html code. 
 
 As we can see, `style2.css` (which contains `.brown` class) was linked later so the text will be brown.
+
+---
 
 ## Attributes of text inside `<button>` tags (Applicable for font-awesome icons as well)
 
