@@ -42,6 +42,8 @@
     - [`:active`](#active)
     - [Anchor element (`<a>`) pseudo-classes](#anchor-element-a-pseudo-classes)
     - [Using the `:hover`/any pseudo class to modify individual child elements of the parent](#using-the-hoverany-pseudo-class-to-modify-individual-child-elements-of-the-parent)
+  - [CSS pseudo-elements](#css-pseudo-elements)
+    - [`::before` and `:after` pseudo-elements](#before-and-after-pseudo-elements)
   - [CSS Combinators](#css-combinators)
     - [CSS Descendant Combinator (`space`)](#css-descendant-combinator-space)
     - [CSS Child Combinator (`>`)](#css-child-combinator-)
@@ -520,6 +522,33 @@ This helps us to change properties of different children of a parent element dif
     display: block;
 }
 ```
+
+---
+
+## CSS pseudo-elements
+
+### `::before` and `:after` pseudo-elements
+
+The `::before` and `::after` pseudo-elements in CSS allow insertion of content onto a page without it needing to be in the HTML. 
+
+While the end result is not actually in the DOM, it appears on the page as if it is, and would essentially be like this:
+
+```css
+div::before {
+  content: "before";
+}
+div::after {
+  content: "after";
+}
+```html
+<div>
+  before
+  <!-- Rest of stuff inside the div -->
+  after
+</div>
+```
+
+For more details, read [this](https://css-tricks.com/almanac/selectors/a/after-and-before/) on CSS Tricks.
 
 ---
 
@@ -1101,7 +1130,48 @@ A content delivery network is used to obtain font-awesome icons. The syntax is t
 
 If there are two or more CSS rules that point to the same element, the selector with the highest specificity value will "win", and its style declaration will be applied to that HTML element.
 
+> **_NOTE:_** If a rule from the same style sheet, with the same level of specificity exists, the rule that is declared last in the CSS document will be the one that is applied.
+
 Think of specificity as a score/rank that determines which style declaration is ultimately applied to an element.
+
+In layman's terms, the more specific CSS selector's rules will apply. For example, we have the following HTML page:
+
+```html
+<div class="first-level">
+    <div class="second-level">
+        <div class="third-level">
+            This is placeholder text
+        </div>            
+    </div>
+</div>
+```
+
+```css
+.first-level .second-level .third-level {
+  color: red;
+}
+
+.second-level .third-level {
+  color: green;
+}
+
+.third-level {
+  color: yellow;
+}
+```
+
+Comparing the first two selectors: 
+
+- the first selector is specifically targeting an element having class `third-level`, with its parent as `second-level` and grand-parent as `third-level`.
+- the second selector is specifically targeting an element having class `third-level`, with its parent as `second-level` and no specified grand-parent.
+  
+So, we can see that the first-selector is more **specific** in its targeting.
+
+If the specifity of all 3 selectors would have been equal, then the last set of CSS rules (`color: yellow`) would have applied (as explained above).
+
+But, the first selector has three classes, making its specificity maximum. 
+
+So, the CSS rule (`color: red`) would apply.
 
 ### **Applying styles using Javascript DOM Manipulation**
 
