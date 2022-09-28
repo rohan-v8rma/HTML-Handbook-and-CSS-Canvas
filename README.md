@@ -67,10 +67,12 @@
       - [Difference of Viewport units from percentages](#difference-of-viewport-units-from-percentages)
     - [Usage of viewport units](#usage-of-viewport-units)
   - [`width`, `margin`, `border` and `padding` of an element](#width-margin-border-and-padding-of-an-element)
-  - [CSS `box-sizing` Property](#css-box-sizing-property)
+  - [CSS `box-sizing` Property (`content-box` vs. `border-box`)](#css-box-sizing-property-content-box-vs-border-box)
   - [CSS `display` Property](#css-display-property)
+  - [CSS `position` property (`static`, `relative`, `absolute` & `fixed`)](#css-position-property-static-relative-absolute--fixed)
+    - [Layout and the containing block](#layout-and-the-containing-block)
   - [CSS `vertical-align` property](#css-vertical-align-property)
-  - [CSS `text-align` Property](#css-text-align-property)
+  - [CSS `text-align` Property (Works only with `block`, not flexboxes)](#css-text-align-property-works-only-with-block-not-flexboxes)
   - [CSS `transition` Property](#css-transition-property)
   - [Setting line spacing in HTML using CSS `line-height` property](#setting-line-spacing-in-html-using-css-line-height-property)
   - [CSS properties for flexboxes](#css-properties-for-flexboxes)
@@ -105,6 +107,7 @@
     - [**Applying styles using Javascript DOM Manipulation**](#applying-styles-using-javascript-dom-manipulation)
     - [**Using two stylesheets**](#using-two-stylesheets)
   - [Attributes of text inside `<button>` tags (Applicable for font-awesome icons as well)](#attributes-of-text-inside-button-tags-applicable-for-font-awesome-icons-as-well)
+  - [Percentage based values for `margin` and `padding` are based ONLY on the containing block's ***width***](#percentage-based-values-for-margin-and-padding-are-based-only-on-the-containing-blocks-width)
   
 # HTML Reference
 
@@ -766,7 +769,7 @@ Border: Note that border doesn't have any width
 
     This means that the total vertical margin is `20vh` (`10vh` above and `10vh` below) and the total horizontal margin is `20vw` (`10vw` on the left and `10vw` on the right).
 
-## CSS `box-sizing` Property
+## CSS `box-sizing` Property (`content-box` vs. `border-box`)
 
 The `box-sizing` CSS property sets how the total width and height of an element is calculated.
 
@@ -781,8 +784,6 @@ The `box-sizing` CSS property sets how the total width and height of an element 
     If you set an element's width to 100 pixels, that 100 pixels will include any border or padding you added, and the content box will shrink to absorb that extra width. This typically makes it much easier to size elements.
 
     It can be thought of intuitively in the sense that both the 'content' and the 'border' is included in the 'box' whose size we are specifying.
-    
-    
 
 ## CSS `display` Property
 
@@ -796,11 +797,39 @@ SYNTAX:
 }
 ```
 
+## CSS `position` property (`static`, `relative`, `absolute` & `fixed`)
+
+The position CSS property sets how an element is positioned in a document. 
+
+The `top`, `right`, `bottom`, and `left` properties determine the final location of positioned elements.
+
+### Layout and the containing block
+
+The ***containing block*** of an element is what impacts its size and position. 
+
+The [percentage-based padding or margin](#percentage-based-values-for-margin-and-padding-are-based-only-on-the-containing-blocks-width) we give to an element is relative to this ***containing block***.
+
+> NOTE: The ancestor of an element is the element inside which it is contained.
+> 
+> ```html
+> <body>
+>   <div>
+>     <p>hello</p>
+>   </div>
+> </body>
+> ```
+>
+> Over here, `body` is the ancestor element of `div`, and `div` is the descendant of `body`. `div` is the ancestor element of `p`, and `p` is the descendant of `div`.
+
+Most often, the ***containing block*** is the content area of an element's nearest block-level **ancestor**, but this is not always the case.
+
+Read the complete reference on what an element's ***containing block*** is on MDN [here](https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block).
+
 ## CSS `vertical-align` property
 
 TODO
 
-## CSS `text-align` Property
+## CSS `text-align` Property (Works only with `block`, not flexboxes)
 
 The `text-align` CSS property sets the horizontal alignment of the inline-level content inside a block element or table-cell box. This means it works like [vertical-align]() but in the horizontal direction.
 
@@ -1258,3 +1287,26 @@ The expected behaviour would be for both the fonts to be the same. But, the actu
 
 So, in order to change the font properties of text inside buttons, we need to use 
 `button` css selector, or assign a class or ID to the `button` element or the `span` elements inside.
+
+---
+
+## Percentage based values for `margin` and `padding` are based ONLY on the containing block's ***width***
+
+Yes, you read that right, the margin and padding of a child element in percentage is the percentage of the width of its [containing block](#layout-and-the-containing-block), even for `padding-top`, `padding-bottom`, `margin-top` and `margin-bottom`.
+
+This can be seen from the following extract from the [CSS2 Spec](https://www.w3.org/TR/2011/REC-CSS2-20110607/box.html#padding-properties):
+
+
+> The properties defined in this section refer to the  `<padding-width>` value type, which may take one of the following values:
+>
+> `<length>` : Specifies a fixed width.
+>
+> `<percentage>` : The percentage is calculated with respect to the width of the generated box's containing block, even for `padding-top` and `padding-bottom`. If the containing block's width depends on this element, then the resulting layout is undefined in CSS 2.1.
+>
+> Unlike margin properties, values for padding values cannot be negative. 
+> 
+> Like margin properties, percentage values for padding properties refer to the width of the generated box's containing block.
+
+BUT, the height of the child element in percentages is still with respect to the ***height*** of the parent element.
+
+Read about this further from [this](https://medium.com/coding-blocks/css-padding-a-magic-wand-2b8a66b84ebe) medium article.
