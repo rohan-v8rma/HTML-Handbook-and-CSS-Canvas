@@ -95,7 +95,6 @@
 - [Important Concepts](#important-concepts)
   - [Removing the underline of a hyperlink using the CSS `text decoration` property](#removing-the-underline-of-a-hyperlink-using-the-css-text-decoration-property)
   - [Why we shouldn't use `&nbsp` for creating gaps in between elements](#why-we-shouldnt-use-nbsp-for-creating-gaps-in-between-elements)
-  - [Writing Semantic HTML](#writing-semantic-html)
   - [Difference between `src` and `href` attribute](#difference-between-src-and-href-attribute)
     - [Difference between *parsing* and *rendering*](#difference-between-parsing-and-rendering)
   - [Using `<i>` and `<span>` for adding icons](#using-i-and-span-for-adding-icons)
@@ -108,6 +107,14 @@
     - [**Using two stylesheets**](#using-two-stylesheets)
   - [Attributes of text inside `<button>` tags (Applicable for font-awesome icons as well)](#attributes-of-text-inside-button-tags-applicable-for-font-awesome-icons-as-well)
   - [Percentage based values for `margin` and `padding` are based ONLY on the containing block's ***width***](#percentage-based-values-for-margin-and-padding-are-based-only-on-the-containing-blocks-width)
+- [Useful Articles & Documentation](#useful-articles--documentation)
+  - [Writing Semantic HTML](#writing-semantic-html)
+  - [`::before` and `:after` pseudo-elements](#before-and-after-pseudo-elements-1)
+  - [A Complete Guide to Flexbox](#a-complete-guide-to-flexbox)
+    - [CSS properties for flexboxes](#css-properties-for-flexboxes-1)
+  - [Percentage Based values for `margin` and `padding`](#percentage-based-values-for-margin-and-padding)
+  - [Layout and the containing block](#layout-and-the-containing-block-1)
+  - [CSS Modules](#css-modules)
   
 # HTML Reference
 
@@ -209,11 +216,7 @@ It is generally NOT advisable to use `flex-grow: 1` for all children because `fl
 
 `flex: 1` creates a definite ratio between the children such that the total space a child takes up is equal to that ratio. 
 
-Refer 
-[CSS properties for flexboxes](#css-properties-for-flexboxes) 
-below or 
-[A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) 
-for more information.
+Refer [CSS properties for flexboxes](#css-properties-for-flexboxes) below or refer the article under Useful Articles [below](#a-complete-guide-to-flexbox) for more information.
 
 ## HTML elements
 
@@ -551,7 +554,7 @@ div::after {
 </div>
 ```
 
-For more details, read [this](https://css-tricks.com/almanac/selectors/a/after-and-before/) on CSS Tricks.
+For more details, read the article listed under Useful Articles [below](#before-and-after-pseudo-elements-1) on CSS Tricks.
 
 ---
 
@@ -823,7 +826,7 @@ The [percentage-based padding or margin](#percentage-based-values-for-margin-and
 
 Most often, the ***containing block*** is the content area of an element's nearest block-level **ancestor**, but this is not always the case.
 
-Read the complete reference on what an element's ***containing block*** is on MDN [here](https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block).
+Read the complete reference on what an element's ***containing block*** is on MDN from the Useful Articles list [below](#layout-and-the-containing-block-1).
 
 ## CSS `vertical-align` property
 
@@ -874,7 +877,7 @@ An acceptable value is 150%, which means the distance between the base of a line
 
 ## CSS properties for flexboxes
 
-Refer [this](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-background) article for more in-depth explanation.
+Refer the articles listed under Useful Articles [below](#css-properties-for-flexboxes-1) for more in-depth explanation.
 
 SYNTAX:
 ```css
@@ -1045,16 +1048,6 @@ This is useful for removing hyperlink underlines from nav bars, a place where it
 ## Why we shouldn't use [`&nbsp`](#non-breaking-space-nbsp) for creating gaps in between elements
 
 This character shouldn't be used in webpages to create gaps because it is absolute in nature, which creates problems in responsiveness as the gap between two elements will remain fixed while everything else changes.
-
-##  Writing Semantic HTML
-
-TODO
-
-[`<header>` and `<footer>` tags](#header--footer-element)
-
-`<section>` tag
-
-[More information on Semantic HTML](https://www.w3schools.com/html/html5_semantic_elements.asp)
 
 ## Difference between `src` and `href` attribute
 
@@ -1309,4 +1302,42 @@ This can be seen from the following extract from the [CSS2 Spec](https://www.w3.
 
 BUT, the height of the child element in percentages is still with respect to the ***height*** of the parent element.
 
-Read about this further from [this](https://medium.com/coding-blocks/css-padding-a-magic-wand-2b8a66b84ebe) medium article.
+Read about this further from the link provided [below](#percentage-based-values-for-margin-and-padding).
+
+# Useful Articles & Documentation
+
+## Writing Semantic HTML
+
+[`<header>` and `<footer>` tags](#header--footer-element)
+
+`<section>` tag
+
+https://www.w3schools.com/html/html5_semantic_elements.asp
+
+## `::before` and `:after` pseudo-elements
+
+https://css-tricks.com/almanac/selectors/a/after-and-before/
+
+## A Complete Guide to Flexbox
+
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+### CSS properties for flexboxes
+
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-background
+
+## Percentage Based values for `margin` and `padding`
+
+https://medium.com/coding-blocks/css-padding-a-magic-wand-2b8a66b84ebe
+
+## Layout and the containing block
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block
+
+## CSS Modules
+
+https://css-tricks.com/css-modules-part-1-need/
+
+https://css-tricks.com/css-modules-part-2-getting-started/
+
+https://glenmaddern.com/articles/css-modules
