@@ -6,7 +6,7 @@
   - [Template of an HTML document](#template-of-an-html-document)
   - [What are HTML Attributes?](#what-are-html-attributes)
   - [What is the Role of a Web Browser in this process?](#what-is-the-role-of-a-web-browser-in-this-process)
-  - [HTML Inline, Block & Flex elements](#html-inline-block--flex-elements)
+  - [HTML Inline, Block \& Flex elements](#html-inline-block--flex-elements)
     - [Block-level element](#block-level-element)
     - [Inline element](#inline-element)
     - [Inline-block](#inline-block)
@@ -17,9 +17,10 @@
     - [Difference b/w `flex` and `flex-grow` property of children of a flex container](#difference-bw-flex-and-flex-grow-property-of-children-of-a-flex-container)
   - [HTML elements](#html-elements)
     - [`<a>` element (Hyperlink tag)](#a-element-hyperlink-tag)
+      - [Use of href being set to `"#"` in anchor `<a>` tag](#use-of-href-being-set-to--in-anchor-a-tag)
     - [`<img>` element](#img-element)
     - [`<div>` element](#div-element)
-    - [`<header>` & `<footer>` element](#header--footer-element)
+    - [`<header>` \& `<footer>` element](#header--footer-element)
     - [`<link>` element](#link-element)
       - [Adding an external CSS stylesheet](#adding-an-external-css-stylesheet)
       - [Adding a favicon](#adding-a-favicon)
@@ -34,7 +35,7 @@
     - [CSS ID Selector](#css-id-selector)
     - [CSS class selector](#css-class-selector)
     - [CSS universal selector](#css-universal-selector)
-  - [CSS Pseudo classes & elements *(can't be accessed using DOM)*](#css-pseudo-classes--elements-cant-be-accessed-using-dom)
+  - [CSS Pseudo classes \& elements *(can't be accessed using DOM)*](#css-pseudo-classes--elements-cant-be-accessed-using-dom)
   - [CSS Pseudo-classes](#css-pseudo-classes)
     - [`:link`](#link)
     - [`:visited`](#visited)
@@ -43,7 +44,7 @@
     - [Anchor element (`<a>`) pseudo-classes](#anchor-element-a-pseudo-classes)
     - [Using the `:hover`/any pseudo class to modify individual child elements of the parent](#using-the-hoverany-pseudo-class-to-modify-individual-child-elements-of-the-parent)
   - [CSS pseudo-elements](#css-pseudo-elements)
-    - [`::before` and `:after` pseudo-elements](#before-and-after-pseudo-elements)
+    - [`::before` and `::after` pseudo-elements](#before-and-after-pseudo-elements)
   - [CSS Combinators](#css-combinators)
     - [CSS Descendant Combinator (`space`)](#css-descendant-combinator-space)
     - [CSS Child Combinator (`>`)](#css-child-combinator-)
@@ -69,7 +70,7 @@
   - [`width`, `margin`, `border` and `padding` of an element](#width-margin-border-and-padding-of-an-element)
   - [CSS `box-sizing` Property (`content-box` vs. `border-box`)](#css-box-sizing-property-content-box-vs-border-box)
   - [CSS `display` Property](#css-display-property)
-  - [CSS `position` property (`static`, `relative`, `absolute` & `fixed`)](#css-position-property-static-relative-absolute--fixed)
+  - [CSS `position` property (`static`, `relative`, `absolute` \& `fixed`)](#css-position-property-static-relative-absolute--fixed)
     - [Layout and the containing block](#layout-and-the-containing-block)
   - [CSS `vertical-align` property](#css-vertical-align-property)
   - [CSS `text-align` Property (Works only with `block`, not flexboxes)](#css-text-align-property-works-only-with-block-not-flexboxes)
@@ -107,13 +108,14 @@
     - [**Using two stylesheets**](#using-two-stylesheets)
   - [Attributes of text inside `<button>` tags (Applicable for font-awesome icons as well)](#attributes-of-text-inside-button-tags-applicable-for-font-awesome-icons-as-well)
   - [Percentage based values for `margin` and `padding` are based ONLY on the containing block's ***width***](#percentage-based-values-for-margin-and-padding-are-based-only-on-the-containing-blocks-width)
-- [Useful Articles & Documentation](#useful-articles--documentation)
+- [Useful Articles \& Documentation (See Edge Bookmarks)](#useful-articles--documentation-see-edge-bookmarks)
   - [Writing Semantic HTML](#writing-semantic-html)
   - [`::before` and `:after` pseudo-elements](#before-and-after-pseudo-elements-1)
   - [A Complete Guide to Flexbox](#a-complete-guide-to-flexbox)
     - [CSS properties for flexboxes](#css-properties-for-flexboxes-1)
   - [Percentage Based values for `margin` and `padding`](#percentage-based-values-for-margin-and-padding)
   - [Layout and the containing block](#layout-and-the-containing-block-1)
+  - [Block Formatting Context and Avoid OVERFLOW using `display: flow-root`](#block-formatting-context-and-avoid-overflow-using-display-flow-root)
   - [CSS Modules](#css-modules)
   
 # HTML Reference
@@ -238,6 +240,24 @@ The hyperlink displays the text enclosed between the start and end tag to the us
 
 We can **remove the underline of a hyperlink** using [this](#removing-the-underline-of-a-hyperlink) method explained below.
 <br> <br>
+
+#### Use of href being set to `"#"` in anchor `<a>` tag
+
+The href attribute in an HTML `<a>` (anchor) tag is used to specify the URL or location to which the link should point.
+
+When the href attribute is set to `"#"`, it means that the link is pointing to the top of the current page. It essentially creates an ***in-page anchor***, so when the user clicks on the link, the browser will scroll to the top of the page. 
+
+This behavior can be overridden by JavaScript.
+
+This is often used in navigation menus or to create in-page navigation links, such as a "back to top" link.
+
+An example of this would be:
+```html
+<a href="#">Back to top</a>
+```
+In this case, when the user clicks the link, the browser will scroll to the top of the page, but no new page is loaded or requested.
+
+It's also worth mentioning that by default the `a` tag will trigger the page reload, which is not the behavior expected in an SPA, this is where the JavaScript events should be used to prevent the default behaviour of the a tag.
 
 ### `<img>` element
 
@@ -533,7 +553,7 @@ This helps us to change properties of different children of a parent element dif
 
 ## CSS pseudo-elements
 
-### `::before` and `:after` pseudo-elements
+### `::before` and `::after` pseudo-elements
 
 The `::before` and `::after` pseudo-elements in CSS allow insertion of content onto a page without it needing to be in the HTML. 
 
@@ -1304,40 +1324,19 @@ BUT, the height of the child element in percentages is still with respect to the
 
 Read about this further from the link provided [below](#percentage-based-values-for-margin-and-padding).
 
-# Useful Articles & Documentation
+# Useful Articles & Documentation (See Edge Bookmarks)
 
 ## Writing Semantic HTML
 
-[`<header>` and `<footer>` tags](#header--footer-element)
-
-`<section>` tag
-
-https://www.w3schools.com/html/html5_semantic_elements.asp
-
 ## `::before` and `:after` pseudo-elements
-
-https://css-tricks.com/almanac/selectors/a/after-and-before/
 
 ## A Complete Guide to Flexbox
 
-https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-
 ### CSS properties for flexboxes
-
-https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-background
 
 ## Percentage Based values for `margin` and `padding`
 
-https://medium.com/coding-blocks/css-padding-a-magic-wand-2b8a66b84ebe
-
 ## Layout and the containing block
 
-https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block
-
+## Block Formatting Context and Avoid OVERFLOW using `display: flow-root`
 ## CSS Modules
-
-https://css-tricks.com/css-modules-part-1-need/
-
-https://css-tricks.com/css-modules-part-2-getting-started/
-
-https://glenmaddern.com/articles/css-modules
